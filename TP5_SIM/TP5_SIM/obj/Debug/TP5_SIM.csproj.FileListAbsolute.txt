@@ -1,0 +1,11 @@
+C:\Users\tati_\source\repos\TP5_SIM\TP5_SIM\bin\Debug\TP5_SIM.exe.config
+C:\Users\tati_\source\repos\TP5_SIM\TP5_SIM\bin\Debug\TP5_SIM.exe
+C:\Users\tati_\source\repos\TP5_SIM\TP5_SIM\bin\Debug\TP5_SIM.pdb
+C:\Users\tati_\source\repos\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.csprojAssemblyReference.cache
+C:\Users\tati_\source\repos\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.CasoA.resources
+C:\Users\tati_\source\repos\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.Form1.resources
+C:\Users\tati_\source\repos\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.Properties.Resources.resources
+C:\Users\tati_\source\repos\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.csproj.GenerateResource.cache
+C:\Users\tati_\source\repos\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.csproj.CoreCompileInputs.cache
+C:\Users\tati_\source\repos\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.exe
+C:\Users\tati_\source\repos\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.pdb
