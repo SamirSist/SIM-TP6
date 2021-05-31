@@ -83,21 +83,21 @@ namespace TP5_SIM
 
             IList<Object> filaActual = new Object[15];
 
-            //filaActual[0] = evento;
-            //filaActual[1] = reloj;
-            //filaActual[2] = rndLlegada;
-            //filaActual[3] = tiempoEntreLlegada;
-            //filaActual[4] = proximaLlegada;
-            //filaActual[5] = rndPago;
-            //filaActual[6] = formaPago;
-            //filaActual[7] = rndTiempoAtencion;
-            //filaActual[8] = tiempoAtencion;
-            //filaActual[9] = 1000;
-            //filaActual[10] = 1010;
-            //filaActual[11] = estadoCaja1;
-            //filaActual[12] = colaCaja1;
-            //filaActual[13] = estadoCaja2;
-            //filaActual[14] = colaCaja2;
+            filaActual[0] = evento;
+            filaActual[1] = reloj;
+            filaActual[2] = rndLlegada;
+            filaActual[3] = tiempoEntreLlegada;
+            filaActual[4] = proximaLlegada;
+            filaActual[5] = rndPago;
+            filaActual[6] = formaPago;
+            filaActual[7] = rndTiempoAtencion;
+            filaActual[8] = tiempoAtencion;
+            filaActual[9] = finCaja1;
+            filaActual[10] = finCaja2;
+            filaActual[11] = estadoCaja1;
+            filaActual[12] = colaCaja1;
+            filaActual[13] = estadoCaja2;
+            filaActual[14] = colaCaja2;
 
 
             Random aleatorio = new Random();
@@ -108,8 +108,8 @@ namespace TP5_SIM
             {
                 if(i == 1)
                 {
-                    filaActual[0] = "Inicio";
-                    filaActual[1] = 0.00;
+                    evento = "Inicio";
+                    reloj = 0.00;
                     filaActual[2] = Math.Round(aleatorio.NextDouble(), 2);
                     filaActual[3] = Math.Round(-media * Math.Log(1 - Convert.ToDouble(filaActual[2])), 2);
                     filaActual[4] = Convert.ToDouble(filaActual[1]) + Convert.ToDouble(filaActual[3]);
@@ -125,19 +125,19 @@ namespace TP5_SIM
 
                 if (i > 1)
                 {
-                    filaActual[9] = 1000;
-                    filaActual[10] = 1010;
+                    //filaActual[9] = 1000;
+                    //filaActual[10] = 1010;
 
                     if ( Convert.ToDouble(filaActual[4]) < Convert.ToDouble(filaActual[9]) && Convert.ToDouble(filaActual[4]) < Convert.ToDouble(filaActual[10]))
                     {
-                        filaActual[0] = "llegada_cliente";
-                        filaActual[1] = Convert.ToDouble(filaActual[1]) + Convert.ToDouble(filaActual[4]);
+                        evento = "llegada_cliente";
+                        reloj = Convert.ToDouble(filaActual[1]) + Convert.ToDouble(filaActual[4]);
                         filaActual[9] = 0;
                     }
                     else
                     {
-                        filaActual[0] = "llegada_clien";
-                        filaActual[1] = Convert.ToDouble(filaActual[1]) + Convert.ToDouble(filaActual[4]);
+                        evento = "llegada_clien";
+                        reloj = Convert.ToDouble(filaActual[1]) + Convert.ToDouble(filaActual[4]);
 
 
                     }
@@ -150,16 +150,16 @@ namespace TP5_SIM
 
                 if(i == 1)
                 {
-                    dgCasoA.Rows.Add(filaActual[0], filaActual[1], filaActual[2], filaActual[3], filaActual[4], filaActual[5], filaActual[6], filaActual[7], filaActual[8], filaActual[9], filaActual[10], filaActual[11], filaActual[12], filaActual[13], filaActual[14]);
+                    dgCasoA.Rows.Add(evento, reloj, filaActual[2], filaActual[3], filaActual[4], filaActual[5], filaActual[6], filaActual[7], filaActual[8], filaActual[9], filaActual[10], filaActual[11], filaActual[12], filaActual[13], filaActual[14]);
                 }
 
                 if (i > 1 && i >= desde && i <= desde + 100)
                 {
-                    dgCasoA.Rows.Add(filaActual[0], filaActual[1], filaActual[2], filaActual[3], filaActual[4], filaActual[5], filaActual[6], filaActual[7], filaActual[8], filaActual[9], filaActual[10], filaActual[11], filaActual[12], filaActual[13], filaActual[14]);
+                    dgCasoA.Rows.Add(evento, reloj, filaActual[2], filaActual[3], filaActual[4], filaActual[5], filaActual[6], filaActual[7], filaActual[8], filaActual[9], filaActual[10], filaActual[11], filaActual[12], filaActual[13], filaActual[14]);
                 }
                 if (i == minutos && minutos > 100)
                 {
-                    dgCasoA.Rows.Add(filaActual[0], filaActual[1], filaActual[2], filaActual[3], filaActual[4], filaActual[5], filaActual[6], filaActual[7], filaActual[8], filaActual[9], filaActual[10], filaActual[11], filaActual[12], filaActual[13], filaActual[14]);
+                    dgCasoA.Rows.Add(evento, reloj, filaActual[2], filaActual[3], filaActual[4], filaActual[5], filaActual[6], filaActual[7], filaActual[8], filaActual[9], filaActual[10], filaActual[11], filaActual[12], filaActual[13], filaActual[14]);
                 }
 
 
