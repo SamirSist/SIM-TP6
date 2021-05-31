@@ -238,6 +238,7 @@ namespace TP5_SIM
             this.btn_simular.TabIndex = 8;
             this.btn_simular.Text = "Simular";
             this.btn_simular.UseVisualStyleBackColor = true;
+            this.btn_simular.Click += new System.EventHandler(this.btn_simular_Click);
             // 
             // dgCasoA
             // 
@@ -330,14 +331,14 @@ namespace TP5_SIM
             // 
             // Column10
             // 
-            this.Column10.HeaderText = "Caja1";
+            this.Column10.HeaderText = "FinCaja1";
             this.Column10.MinimumWidth = 8;
             this.Column10.Name = "Column10";
             this.Column10.Width = 150;
             // 
             // Column11
             // 
-            this.Column11.HeaderText = "Caja2";
+            this.Column11.HeaderText = "FinCaja2";
             this.Column11.MinimumWidth = 8;
             this.Column11.Name = "Column11";
             this.Column11.Width = 150;
@@ -388,6 +389,7 @@ namespace TP5_SIM
             this.Name = "CasoA";
             this.Text = "CasoA";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.CasoA_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
