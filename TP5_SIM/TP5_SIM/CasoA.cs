@@ -32,6 +32,12 @@ namespace TP5_SIM
         private string estadoCaja2;
         private Evento proximoEvento;
         private int cantClientes;
+        private int cantClientesAtendidos;
+        private double totalTiempoAtendiendo;
+        private double promTiempoAtendiendo;
+        private double cantClientesAtendidosxMinuto;
+
+
         private List<int> colaA = new List<int>();
         private List<int> colaB = new List<int>();
         private List<Evento> Eventos = new List<Evento>();
@@ -92,6 +98,8 @@ namespace TP5_SIM
             colaA.Clear();
             colaB.Clear();
             Eventos.Add(new Evento() { tiempo = 0, nombre = "Inicializacion", cliente = 0, caja = 0 });
+            cantClientesAtendidos = 0;
+            totalTiempoAtendiendo = 0;
 
             rnd = aleatorio.NextDouble();
             for (int i = 1; reloj <= minutos; i++)
@@ -114,6 +122,7 @@ namespace TP5_SIM
 
                 }
 
+                //Llegada de un cliente
                 if (proximoEvento.nombre == "Llegada_cliente")
                 {
                     cantClientes += 1;
@@ -186,13 +195,17 @@ namespace TP5_SIM
 
                 }
 
+                //Fin de atención de un cliente
                 if (proximoEvento.nombre == "Fin_Atencion_C") {
                     evento = proximoEvento.nombre + "_" + proximoEvento.cliente;
                     reloj = proximoEvento.tiempo;
                     rndLlegada = 0;
                     tiempoEntreLlegada = 0;
                     proximaLlegada = 0;
+                    cantClientesAtendidos += 1;
                     agregarFinAtencionCliente(proximoEvento.cliente, reloj);
+                    sumarTiempoAtencion(proximoEvento.cliente, reloj);
+                    
                     if (proximoEvento.caja == 1)
                     {
                         finAtencionColaA();
@@ -247,8 +260,10 @@ namespace TP5_SIM
                     }
                 }
 
-                dgCasoA.Rows.Add(evento, reloj, rndLlegada, tiempoEntreLlegada, proximaLlegada, rndPago, formaPago, rndTiempoAtencion, tiempoAtencion, finAtencionA, finAtencionB, estadoCaja1, string.Join(",", colaA), estadoCaja2, string.Join(",", colaB), cantClientes, 0, 0);
-
+                if (reloj >= desde && reloj <= hasta)
+                {
+                    dgCasoA.Rows.Add(evento, reloj, rndLlegada, tiempoEntreLlegada, proximaLlegada, rndPago, formaPago, rndTiempoAtencion, tiempoAtencion, finAtencionA, finAtencionB, estadoCaja1, string.Join(",", colaA), estadoCaja2, string.Join(",", colaB), cantClientesAtendidos, totalTiempoAtendiendo, promTiempoAtendiendo, cantClientesAtendidosxMinuto);
+                }
             }
 
         }
@@ -358,6 +373,24 @@ namespace TP5_SIM
             clientesGrid.Rows[cliente - 1].Cells[2].Value = reloj;
         }
 
+        private double obtenerTiempoInicioAtencion(int cliente)
+        {
+            double tiempo;
+            tiempo = Convert.ToDouble(clientesGrid.Rows[cliente - 1].Cells[1].Value);
+            return tiempo;
+        }
+
+        private void sumarTiempoAtencion(int cliente, double reloj) {
+            double inicioT = obtenerTiempoInicioAtencion(cliente);
+            double total = reloj - inicioT;
+            totalTiempoAtendiendo += total;
+            promTiempoAtendiendo = Math.Round(totalTiempoAtendiendo / cantClientesAtendidos, 2);
+            calcularClientesxMinuto(reloj);
+        }
+
+        private void calcularClientesxMinuto(double reloj) {
+            cantClientesAtendidosxMinuto = Math.Round(cantClientesAtendidos / reloj, 2);
+        }
         private double obtenerRandom() { 
             double rnd = Math.Round(aleatorio.NextDouble(), 2);
             if (rnd == 1) {

@@ -180,7 +180,7 @@ namespace TP5_SIM
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(133, 107);
+            this.groupBox2.Size = new System.Drawing.Size(173, 107);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Forma de Pago";
@@ -188,22 +188,22 @@ namespace TP5_SIM
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(23, 71);
+            this.label7.Location = new System.Drawing.Point(4, 71);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 13);
+            this.label7.Size = new System.Drawing.Size(139, 13);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Rnd < 1        Contado";
+            this.label7.Text = " 0,20 >=  Rnd < 1   Contado";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 32);
+            this.label6.Location = new System.Drawing.Point(4, 32);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 13);
+            this.label6.Size = new System.Drawing.Size(123, 13);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Rnd < 0.20   Tarjeta";
+            this.label6.Text = " 0 > Rnd < 0.20   Tarjeta";
             // 
             // label8
             // 
