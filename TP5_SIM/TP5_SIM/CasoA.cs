@@ -40,6 +40,8 @@ namespace TP5_SIM
 
         private List<int> colaA = new List<int>();
         private List<int> colaB = new List<int>();
+        private List<double> tiemposInicioAt = new List<double>();
+        private List<double> tiemposFinAt = new List<double>();
         private List<Evento> Eventos = new List<Evento>();
         Random aleatorio = new Random();
         public CasoA()
@@ -97,6 +99,8 @@ namespace TP5_SIM
             reloj = 0;
             colaA.Clear();
             colaB.Clear();
+            tiemposInicioAt.Clear();
+            tiemposFinAt.Clear();
             Eventos.Add(new Evento() { tiempo = 0, nombre = "Inicializacion", cliente = 0, caja = 0 });
             cantClientesAtendidos = 0;
             totalTiempoAtendiendo = 0;
@@ -262,8 +266,18 @@ namespace TP5_SIM
 
                 if (reloj >= desde && reloj <= hasta)
                 {
-                    dgCasoA.Rows.Add(evento, reloj, rndLlegada, tiempoEntreLlegada, proximaLlegada, rndPago, formaPago, rndTiempoAtencion, tiempoAtencion, finAtencionA, finAtencionB, estadoCaja1, string.Join(",", colaA), estadoCaja2, string.Join(",", colaB), cantClientesAtendidos, totalTiempoAtendiendo, promTiempoAtendiendo, cantClientesAtendidosxMinuto);
+                    dgCasoA.Rows.Add(evento, Math.Round(reloj,2), rndLlegada, tiempoEntreLlegada, Math.Round(proximaLlegada,2), rndPago, formaPago, rndTiempoAtencion, tiempoAtencion, Math.Round(finAtencionA,2), Math.Round(finAtencionB,2), estadoCaja1, string.Join(",", colaA), estadoCaja2, string.Join(",", colaB), cantClientesAtendidos, totalTiempoAtendiendo, promTiempoAtendiendo, cantClientesAtendidosxMinuto);
                 }
+
+                
+                
+            }
+
+            int cli = 0;
+            foreach (double tmp in tiemposFinAt)
+            {
+                clientesGrid.Rows.Add(cli + 1, tiemposInicioAt[cli], tiemposFinAt[cli]);
+                cli++;
             }
 
         }
@@ -356,27 +370,33 @@ namespace TP5_SIM
         }
 
         private void agregarClienteTabla(int cliente) {
-            clientesGrid.Rows.Add(cliente);
+            //clientesGrid.Rows.Add(cliente);
+            tiemposInicioAt.Add(0);
+            tiemposFinAt.Add(0);
         }
         private void agregarInicioAtencionTabla(int cliente, double reloj)
         {
-            clientesGrid.Rows[cliente - 1].Cells[0].Value = cliente;
-            clientesGrid.Rows[cliente - 1].Cells[1].Value = reloj;
+            tiemposInicioAt[cliente - 1] = reloj;
+            
+            //clientesGrid.Rows[cliente - 1].Cells[0].Value = cliente;
+            //clientesGrid.Rows[cliente - 1].Cells[1].Value = reloj;
         }
         private void agregarFinAtencionCliente(int cliente, double reloj)
         {
-            DataGridViewRow fila = new DataGridViewRow();
-            fila = clientesGrid.Rows[cliente - 1];
-            double tiempoInicio = Convert.ToDouble(fila.Cells[1].Value);
-            clientesGrid.Rows[cliente - 1].Cells[0].Value = cliente;
-            clientesGrid.Rows[cliente - 1].Cells[1].Value = tiempoInicio;
-            clientesGrid.Rows[cliente - 1].Cells[2].Value = reloj;
+            //DataGridViewRow fila = new DataGridViewRow();
+            //fila = clientesGrid.Rows[cliente - 1];
+            tiemposFinAt[cliente - 1] = reloj;
+            //double tiempoInicio = Convert.ToDouble(fila.Cells[1].Value);
+            //clientesGrid.Rows[cliente - 1].Cells[0].Value = cliente;
+            //clientesGrid.Rows[cliente - 1].Cells[1].Value = tiempoInicio;
+            //clientesGrid.Rows[cliente - 1].Cells[2].Value = reloj;
         }
 
         private double obtenerTiempoInicioAtencion(int cliente)
         {
             double tiempo;
-            tiempo = Convert.ToDouble(clientesGrid.Rows[cliente - 1].Cells[1].Value);
+            //tiempo = Convert.ToDouble(clientesGrid.Rows[cliente - 1].Cells[1].Value);
+            tiempo = tiemposInicioAt[cliente - 1];
             return tiempo;
         }
 
