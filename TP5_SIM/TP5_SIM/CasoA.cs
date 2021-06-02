@@ -20,7 +20,7 @@ namespace TP5_SIM
         private int desde;
         private int hasta;
         private string evento;
-        private double reloj;
+        private double reloj = 0.00;
         private double rndLlegada;
         private double tiempoEntreLlegada;
         private double proximaLlegada;
@@ -28,12 +28,16 @@ namespace TP5_SIM
         private string formaPago;
         private double rndTiempoAtencion;
         private double tiempoAtencion;
-        private double finCaja1 = 1000;
-        private double finCaja2 = 1100;
+        private double finCaja1;
+        private double finCaja2;
         private string estadoCaja1;
-        private int colaCaja1;
+        private int colaCaja1 = 0;
         private string estadoCaja2;
-        private int colaCaja2;
+        private int colaCaja2 = 0;
+        private int cantTotalClientesAt = 0;
+        private double tpoAcAtencionCli = 0;
+        private double promTpoAtencionCli = 0;
+        private double promClientesXMinuto = 0;
 
 
 
@@ -61,9 +65,9 @@ namespace TP5_SIM
         private string FormaPago(double rnd)
         {
             if (rnd < 0.20)
-                return "Tarjeta";
+                return "Si";
             else
-                return "Contado";
+                return "No";
         }
 
         private void btn_simular_Click(object sender, EventArgs e)
@@ -81,23 +85,35 @@ namespace TP5_SIM
             double rnd;
             int opcion;
 
-            IList<Object> filaActual = new Object[15];
+            IList<Object> filaActual = new Object[19];
 
-            filaActual[0] = evento;
-            filaActual[1] = reloj;
-            filaActual[2] = rndLlegada;
-            filaActual[3] = tiempoEntreLlegada;
-            filaActual[4] = proximaLlegada;
-            filaActual[5] = rndPago;
-            filaActual[6] = formaPago;
-            filaActual[7] = rndTiempoAtencion;
-            filaActual[8] = tiempoAtencion;
-            filaActual[9] = finCaja1;
-            filaActual[10] = finCaja2;
-            filaActual[11] = estadoCaja1;
-            filaActual[12] = colaCaja1;
-            filaActual[13] = estadoCaja2;
-            filaActual[14] = colaCaja2;
+            //evento = Convert.ToString(filaActual[0]);
+            //reloj = Convert.ToDouble(filaActual[1]);
+            //rndLlegada = Convert.ToDouble(filaActual[2]);
+            //tiempoEntreLlegada = Convert.ToDouble(filaActual[3]);
+            //proximaLlegada = Convert.ToDouble(filaActual[4]);
+            //rndPago = Convert.ToDouble(filaActual[5]);
+            //formaPago = Convert.ToString(filaActual[6]);
+            //rndTiempoAtencion = Convert.ToDouble(filaActual[7]);
+            //tiempoAtencion = Convert.ToDouble(filaActual[8]);
+            //finCaja1 = Convert.ToDouble(filaActual[9]);
+            //finCaja2 = Convert.ToDouble(filaActual[10]);
+            //estadoCaja1 = Convert.ToString(filaActual[11]);
+            //colaCaja1 = Convert.ToInt32(filaActual[12]);
+            //estadoCaja2 = Convert.ToString(filaActual[13]);
+            //colaCaja2 = Convert.ToInt32(filaActual[14]);
+            //cantTotalClientesAt = Convert.ToInt32(filaActual[15]);
+            //tpoAcAtencionCli = Convert.ToInt32(filaActual[16]);
+            //promTpoAtencionCli = Convert.ToDouble(filaActual[17]);
+            //promClientesXMinuto = Convert.ToDouble(filaActual[18]);
+
+            //filaActual[0] = evento;
+            //filaActual[1] = reloj;
+            //filaActual[3] = tiempoEntreLlegada;
+            //filaActual[4] = proximaLlegada;
+            //filaActual[9] = finCaja1;
+            //filaActual[10] = finCaja2;
+
 
 
             Random aleatorio = new Random();
@@ -108,58 +124,135 @@ namespace TP5_SIM
             {
                 if(i == 1)
                 {
-                    evento = "Inicio";
-                    reloj = 0.00;
+                    filaActual[0] = "Inicio";
+                    evento = Convert.ToString(filaActual[0]);
+                    filaActual[1] = 0.00;
                     filaActual[2] = Math.Round(aleatorio.NextDouble(), 2);
-                    filaActual[3] = Math.Round(-media * Math.Log(1 - Convert.ToDouble(filaActual[2])), 2);
+                    rndLlegada = Convert.ToDouble(filaActual[2]);
+                    filaActual[3] = Math.Round(-media * Math.Log(1 - rndLlegada), 2);
                     filaActual[4] = Convert.ToDouble(filaActual[1]) + Convert.ToDouble(filaActual[3]);
+                    proximaLlegada = Convert.ToDouble(filaActual[4]);
+                    //filaActual[5] = 0;
+                    filaActual[6] = "";
+                    //filaActual[7] = 0;
+                    //filaActual[8] = 0;
                     filaActual[9] = 0;
+                    finCaja1 = Convert.ToDouble(filaActual[9]);
                     filaActual[10] = 0;
+                    finCaja2 = Convert.ToDouble(filaActual[10]);
                     filaActual[11] = "Libre";
+                    filaActual[12] = 0;
                     filaActual[13] = "Libre";
+                    filaActual[14] = 0;
+                    filaActual[15] = 0;
+                    filaActual[16] = 0;
+                    filaActual[17] = 0;
+                    filaActual[18] = 0;
 
                 }
 
-                //filaActual[9] = 1000;
-                //filaActual[10] = 1010;
+                
 
                 if (i > 1)
                 {
-                    //filaActual[9] = 1000;
-                    //filaActual[10] = 1010;
 
-                    if ( Convert.ToDouble(filaActual[4]) < Convert.ToDouble(filaActual[9]) && Convert.ToDouble(filaActual[4]) < Convert.ToDouble(filaActual[10]))
+                    if (finCaja1 == 0 && finCaja2 == 0) /*&& estadoCaja1 == "Libre" && colaCaja1 < 5)*/
                     {
-                        evento = "llegada_cliente";
-                        reloj = Convert.ToDouble(filaActual[1]) + Convert.ToDouble(filaActual[4]);
-                        filaActual[9] = 0;
+                        filaActual[0] = "llegada_cliente";
+                        evento = Convert.ToString(filaActual[0]);
+                        filaActual[1] = Convert.ToDouble(filaActual[4]);
+                        filaActual[2] = Math.Round(aleatorio.NextDouble(), 2);
+                        rndLlegada = Convert.ToDouble(filaActual[2]);
+                        filaActual[3] = Math.Round(-media * Math.Log(1 - rndLlegada), 2);
+                        filaActual[4] = Convert.ToDouble(filaActual[1]) + Convert.ToDouble(filaActual[3]);
+                        proximaLlegada = Convert.ToDouble(filaActual[4]);
+                        //veo si paga con tarjeta
+                        filaActual[5] = Math.Round(aleatorio.NextDouble(), 2);
+                        rndPago = Convert.ToDouble(filaActual[5]);
+                        filaActual[6] = FormaPago(rndPago);
+                        formaPago = Convert.ToString(filaActual[6]);
+                        //calculo tiempo atencion
+                        filaActual[7] = Math.Round(aleatorio.NextDouble(), 2);
+                        rndTiempoAtencion = Convert.ToDouble(filaActual[7]);
+                        filaActual[8] = (finAtencionB - finAtencionA) * rndTiempoAtencion + finAtencionA;
+
+                        if (formaPago == "Si")
+                        {
+                            //rndTiempoAtencion = Math.Round(aleatorio.NextDouble(), 2);
+                            filaActual[8] = Convert.ToDouble(filaActual[8]) + 2;
+                        }
+                        else
+                        {
+                            filaActual[8] = Convert.ToDouble(filaActual[8]);
+                        }
+                        filaActual[9] = Convert.ToDouble(filaActual[1]) + Convert.ToDouble(filaActual[8]); 
+                        finCaja1 = Convert.ToDouble(filaActual[9]);
+                        filaActual[10] = "";
+                        finCaja2 = Convert.ToDouble(filaActual[10]);
+                        filaActual[11] = "Ocupada";
+                        filaActual[12] = 0;
+                        filaActual[13] = "Cerrada";
+                        filaActual[14] = 0;
+                        filaActual[15] = 0;
+                        filaActual[16] = 0;
+                        filaActual[17] = 0;
+                        filaActual[18] = 0;
+
+
                     }
-                    else
+                    if ( finCaja1!= 0 && finCaja2 == 0 && finCaja1 < proximaLlegada)
                     {
-                        evento = "llegada_clien";
-                        reloj = Convert.ToDouble(filaActual[1]) + Convert.ToDouble(filaActual[4]);
+                        filaActual[0] = "finCaja1";
+                        filaActual[1] = filaActual[9];
+                        filaActual[2] = "";
+                        filaActual[3] = "";
+                        filaActual[4] = "";
+                        //veo si paga con tarjeta
+                        filaActual[5] = Math.Round(aleatorio.NextDouble(), 2);
+                        rndPago = Convert.ToDouble(filaActual[5]);
+                        filaActual[6] = FormaPago(rndPago);
+                        formaPago = Convert.ToString(filaActual[6]);
+                        //calculo tiempo atencion
+                        filaActual[7] = Math.Round(aleatorio.NextDouble(), 2);
+                        rndTiempoAtencion = Convert.ToDouble(filaActual[7]);
+                        filaActual[8] = (finAtencionB - finAtencionA) * rndTiempoAtencion + finAtencionA;
 
-
+                        if (formaPago == "Si")
+                        {
+                            //rndTiempoAtencion = Math.Round(aleatorio.NextDouble(), 2);
+                            filaActual[8] = Convert.ToDouble(filaActual[8]) + 2;
+                        }
+                        else
+                        {
+                            filaActual[8] = Convert.ToDouble(filaActual[8]);
+                        }
+                        filaActual[9] = Convert.ToDouble(filaActual[1]) + Convert.ToDouble(filaActual[8]);
+                        finCaja1 = Convert.ToDouble(filaActual[9]);
+                        filaActual[10] = 0;
+                        finCaja2 = Convert.ToDouble(filaActual[10]);
+                        filaActual[11] = "Ocupada";
+                        filaActual[12] = 0;
+                        filaActual[13] = "Cerrada";
+                        filaActual[14] = 0;
+                        filaActual[15] = 0;
+                        filaActual[16] = 0;
+                        filaActual[17] = 0;
+                        filaActual[18] = 0;
                     }
 
-                        
-                    
+
+
 
                 }
 
 
-                if(i == 1)
+                if (i >= 1 && i >= desde && i <= desde + 100)
                 {
-                    dgCasoA.Rows.Add(evento, reloj, filaActual[2], filaActual[3], filaActual[4], filaActual[5], filaActual[6], filaActual[7], filaActual[8], filaActual[9], filaActual[10], filaActual[11], filaActual[12], filaActual[13], filaActual[14]);
-                }
-
-                if (i > 1 && i >= desde && i <= desde + 100)
-                {
-                    dgCasoA.Rows.Add(evento, reloj, filaActual[2], filaActual[3], filaActual[4], filaActual[5], filaActual[6], filaActual[7], filaActual[8], filaActual[9], filaActual[10], filaActual[11], filaActual[12], filaActual[13], filaActual[14]);
+                    dgCasoA.Rows.Add(filaActual[0], filaActual[1], filaActual[2], filaActual[3], filaActual[4], filaActual[5], filaActual[6], filaActual[7], filaActual[8], finCaja1, finCaja2, filaActual[11], filaActual[12], filaActual[13], filaActual[14], filaActual[15], filaActual[16], filaActual[17], filaActual[18]);
                 }
                 if (i == minutos && minutos > 100)
                 {
-                    dgCasoA.Rows.Add(evento, reloj, filaActual[2], filaActual[3], filaActual[4], filaActual[5], filaActual[6], filaActual[7], filaActual[8], filaActual[9], filaActual[10], filaActual[11], filaActual[12], filaActual[13], filaActual[14]);
+                    dgCasoA.Rows.Add(filaActual[0], filaActual[1], filaActual[2], filaActual[3], filaActual[4], filaActual[5], filaActual[6], filaActual[7], filaActual[8], filaActual[9], filaActual[10], filaActual[11], filaActual[12], filaActual[13], filaActual[14], filaActual[15], filaActual[16], filaActual[17], filaActual[18]);
                 }
 
 
