@@ -68,9 +68,14 @@ namespace TP5_SIM
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientesGrid = new System.Windows.Forms.DataGridView();
+            this.numeroCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCasoA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -293,7 +298,7 @@ namespace TP5_SIM
             this.dgCasoA.Name = "dgCasoA";
             this.dgCasoA.RowHeadersWidth = 62;
             this.dgCasoA.RowTemplate.Height = 28;
-            this.dgCasoA.Size = new System.Drawing.Size(1206, 381);
+            this.dgCasoA.Size = new System.Drawing.Size(1206, 272);
             this.dgCasoA.TabIndex = 9;
             // 
             // Column1
@@ -429,11 +434,42 @@ namespace TP5_SIM
             this.Column19.Name = "Column19";
             this.Column19.Width = 150;
             // 
+            // clientesGrid
+            // 
+            this.clientesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.clientesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.numeroCliente,
+            this.tiempoLlegada,
+            this.Column20});
+            this.clientesGrid.Location = new System.Drawing.Point(8, 579);
+            this.clientesGrid.Margin = new System.Windows.Forms.Padding(2);
+            this.clientesGrid.Name = "clientesGrid";
+            this.clientesGrid.RowHeadersWidth = 62;
+            this.clientesGrid.RowTemplate.Height = 28;
+            this.clientesGrid.Size = new System.Drawing.Size(365, 159);
+            this.clientesGrid.TabIndex = 10;
+            // 
+            // numeroCliente
+            // 
+            this.numeroCliente.HeaderText = "Cliente Nº";
+            this.numeroCliente.Name = "numeroCliente";
+            // 
+            // tiempoLlegada
+            // 
+            this.tiempoLlegada.HeaderText = "Tiempo comienzo atención";
+            this.tiempoLlegada.Name = "tiempoLlegada";
+            // 
+            // Column20
+            // 
+            this.Column20.HeaderText = "Tiempo Fin Atención";
+            this.Column20.Name = "Column20";
+            // 
             // CasoA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1265, 694);
+            this.ClientSize = new System.Drawing.Size(1265, 749);
+            this.Controls.Add(this.clientesGrid);
             this.Controls.Add(this.dgCasoA);
             this.Controls.Add(this.btn_simular);
             this.Controls.Add(this.txt_Hasta);
@@ -454,6 +490,7 @@ namespace TP5_SIM
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCasoA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -500,5 +537,9 @@ namespace TP5_SIM
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
+        private System.Windows.Forms.DataGridView clientesGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numeroCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoLlegada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
     }
 }

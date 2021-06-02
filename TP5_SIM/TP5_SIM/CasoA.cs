@@ -27,21 +27,15 @@ namespace TP5_SIM
         private double rndPago;
         private string formaPago;
         private double rndTiempoAtencion;
-        private double proximaAtencion;
         private double tiempoAtencion;
-        private double finCaja1;
-        private double finCaja2;
         private string estadoCaja1;
-        private int colaCaja1;
         private string estadoCaja2;
-        private int colaCaja2;
         private Evento proximoEvento;
         private int cantClientes;
-        private int actClienteA;
-        private int actClienteB;
         private List<int> colaA = new List<int>();
         private List<int> colaB = new List<int>();
         private List<Evento> Eventos = new List<Evento>();
+        Random aleatorio = new Random();
         public CasoA()
         {
             InitializeComponent();
@@ -73,7 +67,7 @@ namespace TP5_SIM
         private void btn_simular_Click(object sender, EventArgs e)
         {
             dgCasoA.Rows.Clear();
-
+            clientesGrid.Rows.Clear();
             //asigno parametros
             media = Convert.ToDouble(txt_media.Text);
             finAtencionA = Convert.ToDouble(txt_finAtencion_A.Text);
@@ -87,16 +81,16 @@ namespace TP5_SIM
 
 
             Eventos.Clear();
-            Random aleatorio = new Random();
+            
             finAtencionA = 0;
             finAtencionB = 0;
             proximaLlegada = 0;
             cantClientes = 1;
             estadoCaja1 = "Libre";
             estadoCaja2 = "Cerrada";
-            colaCaja1 = 0;
-            colaCaja2 = 0;
             reloj = 0;
+            colaA.Clear();
+            colaB.Clear();
             Eventos.Add(new Evento() { tiempo = 0, nombre = "Inicializacion", cliente = 0, caja = 0 });
 
             rnd = aleatorio.NextDouble();
@@ -109,8 +103,8 @@ namespace TP5_SIM
                 {
                     evento = "Inicialización";
                     reloj = proximoEvento.tiempo;
-                    rndLlegada = Math.Round(aleatorio.NextDouble(), 2);
-                    tiempoEntreLlegada = Math.Round(-media * Math.Log(Math.E, 1 - rndLlegada), 2);
+                    rndLlegada = obtenerRandom();
+                    tiempoEntreLlegada = Math.Round(-media * Math.Log(1 - rndLlegada), 2);
                     proximaLlegada = reloj + tiempoEntreLlegada;
                     Eventos.Add(new Evento() { tiempo = proximaLlegada, nombre = "Llegada_cliente", cliente = 1, caja = 0 });
                     rndTiempoAtencion = 0;
@@ -125,15 +119,18 @@ namespace TP5_SIM
                     cantClientes += 1;
                     evento = "Llegada_cliente_" + proximoEvento.cliente;
                     reloj = proximoEvento.tiempo;
-                    rndLlegada = Math.Round(aleatorio.NextDouble(), 2);
-                    tiempoEntreLlegada = Math.Round(-media * Math.Log(Math.E, 1 - rndLlegada), 2);
+                    rndLlegada = obtenerRandom();
+                    if (rndLlegada == 1) {
+                        rndLlegada = 0.99;
+                    }
+                    tiempoEntreLlegada = Math.Round(-media * Math.Log(1 - rndLlegada), 2);
                     proximaLlegada = reloj + tiempoEntreLlegada;
                     Eventos.Add(new Evento() { tiempo = proximaLlegada, nombre = "Llegada_cliente", cliente = cantClientes, caja = 0 });
                     rndTiempoAtencion = 0;
                     tiempoAtencion = 0;
                     rndPago = 0;
                     formaPago = " ";
-
+                    agregarClienteTabla(proximoEvento.cliente);
                     int cola = aQueColaIr();
                     if (estadoCaja1 == "AC" && (estadoCaja2 == "AC" || estadoCaja2 == "Cerrada"))
                     {
@@ -147,56 +144,69 @@ namespace TP5_SIM
                         }
                     }
                     if (cola == 1 && estadoCaja1 == "Libre") {
-                        rndTiempoAtencion = Math.Round(aleatorio.NextDouble(), 2);
-                        rndPago = Math.Round(aleatorio.NextDouble(), 2);
+                        rndTiempoAtencion = obtenerRandom();
+                        rndPago = obtenerRandom();
                         formaPago = FormaPago(rndPago);
                         tiempoAtencion = 0.5 + rndTiempoAtencion;
-                        if (formaPago == "Tarjeta")
-                        {
-                            tiempoAtencion += 2;
-                        }
+                        agregarInicioAtencionTabla(proximoEvento.cliente, reloj);
                         Eventos.Add(new Evento() { tiempo = reloj + tiempoAtencion, nombre = "Fin_Atencion_C", cliente = proximoEvento.cliente, caja = 1 });
                         finAtencionA = reloj + tiempoAtencion;
                         ingresaClienteColaA(proximoEvento.cliente);
                     }
                     if (cola == 2 && estadoCaja2 == "Libre")
                     {
-                        rndTiempoAtencion = Math.Round(aleatorio.NextDouble(), 2);
-                        rndPago = Math.Round(aleatorio.NextDouble(), 2);
+                        rndTiempoAtencion = obtenerRandom();
+                        rndPago = obtenerRandom();
                         formaPago = FormaPago(rndPago);
                         tiempoAtencion = 0.5 + rndTiempoAtencion;
                         if (formaPago == "Tarjeta")
                         {
                             tiempoAtencion += 2;
                         }
+                        agregarInicioAtencionTabla(proximoEvento.cliente, reloj);
                         Eventos.Add(new Evento() { tiempo = reloj + tiempoAtencion, nombre = "Fin_Atencion_C", cliente = proximoEvento.cliente, caja = 2 });
-                        finAtencionA = reloj + tiempoAtencion;
+                        finAtencionB = reloj + tiempoAtencion;
+                        ingresaClienteColaB(proximoEvento.cliente);
+                    }
+                    if (cola == 3 && estadoCaja2 == "Libre")
+                    {
+                        rndTiempoAtencion = obtenerRandom();
+                        rndPago = obtenerRandom();
+                        formaPago = FormaPago(rndPago);
+                        tiempoAtencion = 0.5 + rndTiempoAtencion;
+                        if (formaPago == "Tarjeta")
+                        {
+                            tiempoAtencion += 2;
+                        }
+                        agregarInicioAtencionTabla(colaB[0], reloj);
+                        Eventos.Add(new Evento() { tiempo = reloj + tiempoAtencion, nombre = "Fin_Atencion_C", cliente = colaB[0], caja = 2 });
+                        finAtencionB = reloj + tiempoAtencion;
                         ingresaClienteColaB(proximoEvento.cliente);
                     }
 
                 }
 
                 if (proximoEvento.nombre == "Fin_Atencion_C") {
-                    evento = proximoEvento.nombre + " " + proximoEvento.cliente;
+                    evento = proximoEvento.nombre + "_" + proximoEvento.cliente;
                     reloj = proximoEvento.tiempo;
                     rndLlegada = 0;
                     tiempoEntreLlegada = 0;
                     proximaLlegada = 0;
-
+                    agregarFinAtencionCliente(proximoEvento.cliente, reloj);
                     if (proximoEvento.caja == 1)
                     {
                         finAtencionColaA();
                         if (colaA.Count != 0)
                         {
-                            rndTiempoAtencion = Math.Round(aleatorio.NextDouble(), 2);
-                            rndPago = Math.Round(aleatorio.NextDouble(), 2);
+                            rndTiempoAtencion = obtenerRandom();
+                            rndPago = obtenerRandom();
                             formaPago = FormaPago(rndPago);
                             tiempoAtencion = 0.5 + rndTiempoAtencion;
                             if (formaPago == "Tarjeta")
                             {
                                 tiempoAtencion += 2;
                             }
-
+                            agregarInicioAtencionTabla(colaA[0], reloj);
                             Eventos.Add(new Evento() { tiempo = reloj + tiempoAtencion, nombre = "Fin_Atencion_C", cliente = colaA[0], caja = 1 });
                             finAtencionA = reloj + tiempoAtencion;
                         }
@@ -214,17 +224,17 @@ namespace TP5_SIM
                         finAtencionColaB();
                         if (colaB.Count != 0)
                         {
-                            rndTiempoAtencion = Math.Round(aleatorio.NextDouble(), 2);
-                            rndPago = Math.Round(aleatorio.NextDouble(), 2);
+                            rndTiempoAtencion = obtenerRandom();
+                            rndPago = obtenerRandom();
                             formaPago = FormaPago(rndPago);
                             tiempoAtencion = 0.5 + rndTiempoAtencion;
                             if (formaPago == "Tarjeta")
                             {
                                 tiempoAtencion += 2;
                             }
-
+                            agregarInicioAtencionTabla(colaB[0], reloj);
                             Eventos.Add(new Evento() { tiempo = reloj + tiempoAtencion, nombre = "Fin_Atencion_C", cliente = colaB[0], caja = 2 });
-                            finAtencionA = reloj + tiempoAtencion;
+                            finAtencionB = reloj + tiempoAtencion;
                         }
                         else
                         {
@@ -240,8 +250,6 @@ namespace TP5_SIM
                 dgCasoA.Rows.Add(evento, reloj, rndLlegada, tiempoEntreLlegada, proximaLlegada, rndPago, formaPago, rndTiempoAtencion, tiempoAtencion, finAtencionA, finAtencionB, estadoCaja1, string.Join(",", colaA), estadoCaja2, string.Join(",", colaB), cantClientes, 0, 0);
 
             }
-
-
 
         }
 
@@ -300,11 +308,22 @@ namespace TP5_SIM
             if (colaB.Count == 0)
             {
                 estadoCaja2 = "Libre";
+                if (estadoCaja1 == "Libre")
+                {
+                    estadoCaja2 = "Cerrada";
+                }
             }
+            
         }
 
         private int aQueColaIr()
         {
+            if (estadoCaja2 == "Cerrada" && colaA.Count == 4) {
+                estadoCaja2 = "Libre";
+                colaB.Add(colaA.Last());
+                colaA.RemoveAt(colaA.Count - 1);
+                return 3;
+            }
             if (estadoCaja2 == "Cerrada")
             {
                 return 1;
@@ -319,6 +338,36 @@ namespace TP5_SIM
             return 1;
             
 
+        }
+
+        private void agregarClienteTabla(int cliente) {
+            clientesGrid.Rows.Add(cliente);
+        }
+        private void agregarInicioAtencionTabla(int cliente, double reloj)
+        {
+            clientesGrid.Rows[cliente - 1].Cells[0].Value = cliente;
+            clientesGrid.Rows[cliente - 1].Cells[1].Value = reloj;
+        }
+        private void agregarFinAtencionCliente(int cliente, double reloj)
+        {
+            DataGridViewRow fila = new DataGridViewRow();
+            fila = clientesGrid.Rows[cliente - 1];
+            double tiempoInicio = Convert.ToDouble(fila.Cells[1].Value);
+            clientesGrid.Rows[cliente - 1].Cells[0].Value = cliente;
+            clientesGrid.Rows[cliente - 1].Cells[1].Value = tiempoInicio;
+            clientesGrid.Rows[cliente - 1].Cells[2].Value = reloj;
+        }
+
+        private double obtenerRandom() { 
+            double rnd = Math.Round(aleatorio.NextDouble(), 2);
+            if (rnd == 1) {
+                rnd = 0.99;
+            }
+            if (rnd == 0) {
+                rnd = 0.01;
+            }
+
+            return rnd;
         }
 
         class Evento
