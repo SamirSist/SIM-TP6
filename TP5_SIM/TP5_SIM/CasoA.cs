@@ -27,17 +27,21 @@ namespace TP5_SIM
         private double rndPago;
         private string formaPago;
         private double rndTiempoAtencion;
+        private double proximaAtencion;
         private double tiempoAtencion;
-        private double finCaja1 = 1000;
-        private double finCaja2 = 1100;
+        private double finCaja1;
+        private double finCaja2;
         private string estadoCaja1;
         private int colaCaja1;
         private string estadoCaja2;
         private int colaCaja2;
-
-
-
-
+        private Evento proximoEvento;
+        private int cantClientes;
+        private int actClienteA;
+        private int actClienteB;
+        private List<int> colaA = new List<int>();
+        private List<int> colaB = new List<int>();
+        private List<Evento> Eventos = new List<Evento>();
         public CasoA()
         {
             InitializeComponent();
@@ -76,119 +80,273 @@ namespace TP5_SIM
             finAtencionB = Convert.ToDouble(txt_FinAtencion_B.Text);
             desde = Convert.ToInt32(txt_Desde.Text);
             hasta = Convert.ToInt32(txt_Hasta.Text);
-
+            minutos = Convert.ToInt32(txt_Minutos.Text);
             //rnd
             double rnd;
             int opcion;
 
-            IList<Object> filaActual = new Object[15];
 
-            filaActual[0] = evento;
-            filaActual[1] = reloj;
-            filaActual[2] = rndLlegada;
-            filaActual[3] = tiempoEntreLlegada;
-            filaActual[4] = proximaLlegada;
-            filaActual[5] = rndPago;
-            filaActual[6] = formaPago;
-            filaActual[7] = rndTiempoAtencion;
-            filaActual[8] = tiempoAtencion;
-            filaActual[9] = finCaja1;
-            filaActual[10] = finCaja2;
-            filaActual[11] = estadoCaja1;
-            filaActual[12] = colaCaja1;
-            filaActual[13] = estadoCaja2;
-            filaActual[14] = colaCaja2;
-
-
+            Eventos.Clear();
             Random aleatorio = new Random();
+            finAtencionA = 0;
+            finAtencionB = 0;
+            proximaLlegada = 0;
+            cantClientes = 1;
+            estadoCaja1 = "Libre";
+            estadoCaja2 = "Cerrada";
+            colaCaja1 = 0;
+            colaCaja2 = 0;
+            reloj = 0;
+            Eventos.Add(new Evento() { tiempo = 0, nombre = "Inicializacion", cliente = 0, caja = 0 });
 
             rnd = aleatorio.NextDouble();
-
-            for(int i = 1; i <= Convert.ToInt32(txt_Minutos.Text); i++)
+            for (int i = 1; reloj <= minutos; i++)
             {
-                if(i == 1)
+                proximoEvento = obtenerProxEvent(Eventos);
+
+                //Inicialización
+                if (proximoEvento.nombre == "Inicializacion")
                 {
-                    evento = "Inicio";
-                    reloj = 0.00;
-                    filaActual[2] = Math.Round(aleatorio.NextDouble(), 2);
-                    filaActual[3] = Math.Round(-media * Math.Log(1 - Convert.ToDouble(filaActual[2])), 2);
-                    filaActual[4] = Convert.ToDouble(filaActual[1]) + Convert.ToDouble(filaActual[3]);
-                    filaActual[9] = 0;
-                    filaActual[10] = 0;
-                    filaActual[11] = "Libre";
-                    filaActual[13] = "Libre";
+                    evento = "Inicialización";
+                    reloj = proximoEvento.tiempo;
+                    rndLlegada = Math.Round(aleatorio.NextDouble(), 2);
+                    tiempoEntreLlegada = Math.Round(-media * Math.Log(Math.E, 1 - rndLlegada), 2);
+                    proximaLlegada = reloj + tiempoEntreLlegada;
+                    Eventos.Add(new Evento() { tiempo = proximaLlegada, nombre = "Llegada_cliente", cliente = 1, caja = 0 });
+                    rndTiempoAtencion = 0;
+                    tiempoAtencion = 0;
+                    rndPago = 0;
+                    formaPago = " ";
 
                 }
 
-                //filaActual[9] = 1000;
-                //filaActual[10] = 1010;
-
-                if (i > 1)
+                if (proximoEvento.nombre == "Llegada_cliente")
                 {
-                    //filaActual[9] = 1000;
-                    //filaActual[10] = 1010;
+                    cantClientes += 1;
+                    evento = "Llegada_cliente_" + proximoEvento.cliente;
+                    reloj = proximoEvento.tiempo;
+                    rndLlegada = Math.Round(aleatorio.NextDouble(), 2);
+                    tiempoEntreLlegada = Math.Round(-media * Math.Log(Math.E, 1 - rndLlegada), 2);
+                    proximaLlegada = reloj + tiempoEntreLlegada;
+                    Eventos.Add(new Evento() { tiempo = proximaLlegada, nombre = "Llegada_cliente", cliente = cantClientes, caja = 0 });
+                    rndTiempoAtencion = 0;
+                    tiempoAtencion = 0;
+                    rndPago = 0;
+                    formaPago = " ";
 
-                    if ( Convert.ToDouble(filaActual[4]) < Convert.ToDouble(filaActual[9]) && Convert.ToDouble(filaActual[4]) < Convert.ToDouble(filaActual[10]))
+                    int cola = aQueColaIr();
+                    if (estadoCaja1 == "AC" && (estadoCaja2 == "AC" || estadoCaja2 == "Cerrada"))
                     {
-                        evento = "llegada_cliente";
-                        reloj = Convert.ToDouble(filaActual[1]) + Convert.ToDouble(filaActual[4]);
-                        filaActual[9] = 0;
+                        if (cola == 1)
+                        {
+                            ingresaClienteColaA(proximoEvento.cliente);
+                        }
+                        if (cola == 2)
+                        {
+                            ingresaClienteColaB(proximoEvento.cliente);
+                        }
                     }
-                    else
+                    if (cola == 1 && estadoCaja1 == "Libre") {
+                        rndTiempoAtencion = Math.Round(aleatorio.NextDouble(), 2);
+                        rndPago = Math.Round(aleatorio.NextDouble(), 2);
+                        formaPago = FormaPago(rndPago);
+                        tiempoAtencion = 0.5 + rndTiempoAtencion;
+                        if (formaPago == "Tarjeta")
+                        {
+                            tiempoAtencion += 2;
+                        }
+                        Eventos.Add(new Evento() { tiempo = reloj + tiempoAtencion, nombre = "Fin_Atencion_C", cliente = proximoEvento.cliente, caja = 1 });
+                        finAtencionA = reloj + tiempoAtencion;
+                        ingresaClienteColaA(proximoEvento.cliente);
+                    }
+                    if (cola == 2 && estadoCaja2 == "Libre")
                     {
-                        evento = "llegada_clien";
-                        reloj = Convert.ToDouble(filaActual[1]) + Convert.ToDouble(filaActual[4]);
-
-
+                        rndTiempoAtencion = Math.Round(aleatorio.NextDouble(), 2);
+                        rndPago = Math.Round(aleatorio.NextDouble(), 2);
+                        formaPago = FormaPago(rndPago);
+                        tiempoAtencion = 0.5 + rndTiempoAtencion;
+                        if (formaPago == "Tarjeta")
+                        {
+                            tiempoAtencion += 2;
+                        }
+                        Eventos.Add(new Evento() { tiempo = reloj + tiempoAtencion, nombre = "Fin_Atencion_C", cliente = proximoEvento.cliente, caja = 2 });
+                        finAtencionA = reloj + tiempoAtencion;
+                        ingresaClienteColaB(proximoEvento.cliente);
                     }
 
-                        
-                    
-
                 }
 
+                if (proximoEvento.nombre == "Fin_Atencion_C") {
+                    evento = proximoEvento.nombre + " " + proximoEvento.cliente;
+                    reloj = proximoEvento.tiempo;
+                    rndLlegada = 0;
+                    tiempoEntreLlegada = 0;
+                    proximaLlegada = 0;
 
-                if(i == 1)
-                {
-                    dgCasoA.Rows.Add(evento, reloj, filaActual[2], filaActual[3], filaActual[4], filaActual[5], filaActual[6], filaActual[7], filaActual[8], filaActual[9], filaActual[10], filaActual[11], filaActual[12], filaActual[13], filaActual[14]);
+                    if (proximoEvento.caja == 1)
+                    {
+                        finAtencionColaA();
+                        if (colaA.Count != 0)
+                        {
+                            rndTiempoAtencion = Math.Round(aleatorio.NextDouble(), 2);
+                            rndPago = Math.Round(aleatorio.NextDouble(), 2);
+                            formaPago = FormaPago(rndPago);
+                            tiempoAtencion = 0.5 + rndTiempoAtencion;
+                            if (formaPago == "Tarjeta")
+                            {
+                                tiempoAtencion += 2;
+                            }
+
+                            Eventos.Add(new Evento() { tiempo = reloj + tiempoAtencion, nombre = "Fin_Atencion_C", cliente = colaA[0], caja = 1 });
+                            finAtencionA = reloj + tiempoAtencion;
+                        }
+                        else
+                        {
+                            finAtencionColaA();
+                            rndTiempoAtencion = 0;
+                            tiempoAtencion = 0;
+                            rndPago = 0;
+                            formaPago = " ";
+                        }
+                    }
+                    if (proximoEvento.caja == 2)
+                    {
+                        finAtencionColaB();
+                        if (colaB.Count != 0)
+                        {
+                            rndTiempoAtencion = Math.Round(aleatorio.NextDouble(), 2);
+                            rndPago = Math.Round(aleatorio.NextDouble(), 2);
+                            formaPago = FormaPago(rndPago);
+                            tiempoAtencion = 0.5 + rndTiempoAtencion;
+                            if (formaPago == "Tarjeta")
+                            {
+                                tiempoAtencion += 2;
+                            }
+
+                            Eventos.Add(new Evento() { tiempo = reloj + tiempoAtencion, nombre = "Fin_Atencion_C", cliente = colaB[0], caja = 2 });
+                            finAtencionA = reloj + tiempoAtencion;
+                        }
+                        else
+                        {
+                            finAtencionColaB();
+                            rndTiempoAtencion = 0;
+                            tiempoAtencion = 0;
+                            rndPago = 0;
+                            formaPago = " ";
+                        }
+                    }
                 }
 
-                if (i > 1 && i >= desde && i <= desde + 100)
-                {
-                    dgCasoA.Rows.Add(evento, reloj, filaActual[2], filaActual[3], filaActual[4], filaActual[5], filaActual[6], filaActual[7], filaActual[8], filaActual[9], filaActual[10], filaActual[11], filaActual[12], filaActual[13], filaActual[14]);
-                }
-                if (i == minutos && minutos > 100)
-                {
-                    dgCasoA.Rows.Add(evento, reloj, filaActual[2], filaActual[3], filaActual[4], filaActual[5], filaActual[6], filaActual[7], filaActual[8], filaActual[9], filaActual[10], filaActual[11], filaActual[12], filaActual[13], filaActual[14]);
-                }
-
+                dgCasoA.Rows.Add(evento, reloj, rndLlegada, tiempoEntreLlegada, proximaLlegada, rndPago, formaPago, rndTiempoAtencion, tiempoAtencion, finAtencionA, finAtencionB, estadoCaja1, string.Join(",", colaA), estadoCaja2, string.Join(",", colaB), cantClientes, 0, 0);
 
             }
+
+
 
         }
 
-        private int compararTiempos()
+        private void ingresaClienteColaA(int numC) {
+
+            if (estadoCaja1 == "Libre")
+            {
+                estadoCaja1 = "AC";
+            }
+
+            colaA.Add(numC);
+
+        }
+
+        private void ingresaClienteColaB(int numC)
         {
-            int i = 0;
-            if (proximaLlegada > 0 && proximaLlegada < finCaja1 && proximaLlegada < finCaja2)
+            if (estadoCaja2 == "Libre")
             {
-                //Proximo evento es LlegadaConsulta
-                i = 1;
-
+                estadoCaja2 = "AC";
             }
-            if (finCaja1 > 0 && finCaja1 < proximaLlegada && finCaja1 < finCaja2)
+            colaB.Add(numC);
+
+        }
+
+        private void finAtencionColaA()
+        {
+            int temp;
+            if (colaA.Count == 0)
             {
-                //proximo evento es FinConsulta
-                i = 2;
+                temp = -1;
             }
-            if (finCaja2 > 0 && finCaja2 < proximaLlegada && finCaja2 < finCaja1)
+            else
             {
-                //proximo evento es LlegadaUrgencia
-                i = 3;
+                temp = colaA[0];
+                colaA.RemoveAt(0);
             }
 
-            return i;
+            if (colaA.Count == 0)
+            {
+                estadoCaja1 = "Libre";
+            }
+        }
 
+        private void finAtencionColaB()
+        {
+            int temp;
+            if (colaB.Count == 0)
+            {
+                temp = -1;
+            }
+            else
+            {
+                temp = colaB[0];
+                colaB.RemoveAt(0);
+            }
+            if (colaB.Count == 0)
+            {
+                estadoCaja2 = "Libre";
+            }
+        }
+
+        private int aQueColaIr()
+        {
+            if (estadoCaja2 == "Cerrada")
+            {
+                return 1;
+            }
+            if (colaA.Count > colaB.Count && estadoCaja2 == "AC" || estadoCaja2 == "Libre") {
+                return 2;
+            }
+            if (colaA.Count <= colaB.Count)
+            {
+                return 1;
+            }
+            return 1;
+            
+
+        }
+
+        class Evento
+        {
+            public double tiempo { get; set; }
+            public string nombre { get; set; }
+
+            public int cliente { get; set; }
+
+            public int caja { get; set; }
+        }
+
+        private Evento obtenerProxEvent(List<Evento> Eventos) {
+            Evento tempEvent = Eventos[0];
+            int i;
+            i = 0;
+            int j;
+            j = 0;
+            foreach (Evento ev in Eventos) {
+               
+                if (ev.tiempo < tempEvent.tiempo) {
+                    tempEvent = ev;
+                    j = i;
+                }
+                i += 1;
+            }
+            Eventos.RemoveAt(j);
+            return tempEvent;
         }
     }
 }

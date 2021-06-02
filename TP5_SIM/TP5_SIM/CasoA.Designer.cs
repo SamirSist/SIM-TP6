@@ -83,33 +83,38 @@ namespace TP5_SIM
             this.groupBox1.Controls.Add(this.txt_media);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(47, 32);
+            this.groupBox1.Location = new System.Drawing.Point(31, 21);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(437, 171);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(291, 111);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Eventos";
             // 
             // txt_FinAtencion_B
             // 
-            this.txt_FinAtencion_B.Location = new System.Drawing.Point(311, 111);
+            this.txt_FinAtencion_B.Location = new System.Drawing.Point(207, 72);
+            this.txt_FinAtencion_B.Margin = new System.Windows.Forms.Padding(2);
             this.txt_FinAtencion_B.Name = "txt_FinAtencion_B";
-            this.txt_FinAtencion_B.Size = new System.Drawing.Size(60, 26);
+            this.txt_FinAtencion_B.Size = new System.Drawing.Size(41, 20);
             this.txt_FinAtencion_B.TabIndex = 7;
             // 
             // txt_finAtencion_A
             // 
-            this.txt_finAtencion_A.Location = new System.Drawing.Point(311, 72);
+            this.txt_finAtencion_A.Location = new System.Drawing.Point(207, 47);
+            this.txt_finAtencion_A.Margin = new System.Windows.Forms.Padding(2);
             this.txt_finAtencion_A.Name = "txt_finAtencion_A";
-            this.txt_finAtencion_A.Size = new System.Drawing.Size(60, 26);
+            this.txt_finAtencion_A.Size = new System.Drawing.Size(41, 20);
             this.txt_finAtencion_A.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(269, 114);
+            this.label5.Location = new System.Drawing.Point(179, 74);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(24, 20);
+            this.label5.Size = new System.Drawing.Size(17, 13);
             this.label5.TabIndex = 5;
             this.label5.Text = "B:";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -117,43 +122,48 @@ namespace TP5_SIM
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(269, 78);
+            this.label4.Location = new System.Drawing.Point(179, 51);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(24, 20);
+            this.label4.Size = new System.Drawing.Size(17, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "A:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(269, 41);
+            this.label3.Location = new System.Drawing.Point(179, 27);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 20);
+            this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Fin Atencion:";
             // 
             // txt_media
             // 
-            this.txt_media.Location = new System.Drawing.Point(102, 93);
+            this.txt_media.Location = new System.Drawing.Point(68, 60);
+            this.txt_media.Margin = new System.Windows.Forms.Padding(2);
             this.txt_media.Name = "txt_media";
-            this.txt_media.Size = new System.Drawing.Size(57, 26);
+            this.txt_media.Size = new System.Drawing.Size(39, 20);
             this.txt_media.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 99);
+            this.label2.Location = new System.Drawing.Point(27, 64);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 20);
+            this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Media:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 41);
+            this.label1.Location = new System.Drawing.Point(27, 27);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 20);
+            this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Llegada Cliente";
             // 
@@ -161,9 +171,11 @@ namespace TP5_SIM
             // 
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(615, 39);
+            this.groupBox2.Location = new System.Drawing.Point(410, 25);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 164);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(133, 107);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Forma de Pago";
@@ -171,74 +183,83 @@ namespace TP5_SIM
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(35, 110);
+            this.label7.Location = new System.Drawing.Point(23, 71);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(158, 20);
+            this.label7.Size = new System.Drawing.Size(109, 13);
             this.label7.TabIndex = 1;
             this.label7.Text = "Rnd < 1        Contado";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(35, 50);
+            this.label6.Location = new System.Drawing.Point(23, 32);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(148, 20);
+            this.label6.Size = new System.Drawing.Size(102, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "Rnd < 0.20   Tarjeta";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(92, 265);
+            this.label8.Location = new System.Drawing.Point(61, 172);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(136, 20);
+            this.label8.Size = new System.Drawing.Size(91, 13);
             this.label8.TabIndex = 2;
             this.label8.Text = "Minutos a simular:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(168, 320);
+            this.label9.Location = new System.Drawing.Point(112, 208);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 20);
+            this.label9.Size = new System.Drawing.Size(41, 13);
             this.label9.TabIndex = 3;
             this.label9.Text = "Desde:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(172, 373);
+            this.label10.Location = new System.Drawing.Point(115, 242);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 20);
+            this.label10.Size = new System.Drawing.Size(38, 13);
             this.label10.TabIndex = 4;
             this.label10.Text = "Hasta:";
             // 
             // txt_Minutos
             // 
-            this.txt_Minutos.Location = new System.Drawing.Point(240, 259);
+            this.txt_Minutos.Location = new System.Drawing.Point(160, 168);
+            this.txt_Minutos.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Minutos.Name = "txt_Minutos";
-            this.txt_Minutos.Size = new System.Drawing.Size(100, 26);
+            this.txt_Minutos.Size = new System.Drawing.Size(68, 20);
             this.txt_Minutos.TabIndex = 5;
             // 
             // txt_Desde
             // 
-            this.txt_Desde.Location = new System.Drawing.Point(240, 314);
+            this.txt_Desde.Location = new System.Drawing.Point(160, 204);
+            this.txt_Desde.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Desde.Name = "txt_Desde";
-            this.txt_Desde.Size = new System.Drawing.Size(100, 26);
+            this.txt_Desde.Size = new System.Drawing.Size(68, 20);
             this.txt_Desde.TabIndex = 6;
             // 
             // txt_Hasta
             // 
-            this.txt_Hasta.Location = new System.Drawing.Point(240, 367);
+            this.txt_Hasta.Location = new System.Drawing.Point(160, 239);
+            this.txt_Hasta.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Hasta.Name = "txt_Hasta";
-            this.txt_Hasta.Size = new System.Drawing.Size(100, 26);
+            this.txt_Hasta.Size = new System.Drawing.Size(68, 20);
             this.txt_Hasta.TabIndex = 7;
             // 
             // btn_simular
             // 
-            this.btn_simular.Location = new System.Drawing.Point(391, 297);
+            this.btn_simular.Location = new System.Drawing.Point(261, 193);
+            this.btn_simular.Margin = new System.Windows.Forms.Padding(2);
             this.btn_simular.Name = "btn_simular";
-            this.btn_simular.Size = new System.Drawing.Size(189, 61);
+            this.btn_simular.Size = new System.Drawing.Size(126, 40);
             this.btn_simular.TabIndex = 8;
             this.btn_simular.Text = "Simular";
             this.btn_simular.UseVisualStyleBackColor = true;
@@ -267,11 +288,12 @@ namespace TP5_SIM
             this.Column17,
             this.Column18,
             this.Column19});
-            this.dgCasoA.Location = new System.Drawing.Point(12, 465);
+            this.dgCasoA.Location = new System.Drawing.Point(8, 302);
+            this.dgCasoA.Margin = new System.Windows.Forms.Padding(2);
             this.dgCasoA.Name = "dgCasoA";
             this.dgCasoA.RowHeadersWidth = 62;
             this.dgCasoA.RowTemplate.Height = 28;
-            this.dgCasoA.Size = new System.Drawing.Size(1809, 368);
+            this.dgCasoA.Size = new System.Drawing.Size(1206, 381);
             this.dgCasoA.TabIndex = 9;
             // 
             // Column1
@@ -409,9 +431,9 @@ namespace TP5_SIM
             // 
             // CasoA
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1833, 845);
+            this.ClientSize = new System.Drawing.Size(1265, 694);
             this.Controls.Add(this.dgCasoA);
             this.Controls.Add(this.btn_simular);
             this.Controls.Add(this.txt_Hasta);
@@ -422,6 +444,7 @@ namespace TP5_SIM
             this.Controls.Add(this.label8);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CasoA";
             this.Text = "CasoA";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
