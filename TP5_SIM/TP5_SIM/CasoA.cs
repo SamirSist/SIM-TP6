@@ -280,6 +280,8 @@ namespace TP5_SIM
                 cli++;
             }
 
+            mostrarResultados();
+
         }
 
         private void ingresaClienteColaA(int numC) {
@@ -421,6 +423,12 @@ namespace TP5_SIM
             }
 
             return rnd;
+        }
+
+        private void mostrarResultados()
+        {
+            lblRtadoPromedioAtencion.Text = this.promTiempoAtendiendo.ToString();
+            lblRtadoCantidadAtendidosXMin.Text = this.cantClientesAtendidosxMinuto.ToString();
         }
 
         class Evento

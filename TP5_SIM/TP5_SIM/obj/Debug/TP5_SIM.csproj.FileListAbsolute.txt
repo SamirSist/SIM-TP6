@@ -31,3 +31,14 @@ C:\Users\Samir\tp-sim-1\TP5\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.csproj.GenerateRes
 C:\Users\Samir\tp-sim-1\TP5\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.csproj.CoreCompileInputs.cache
 C:\Users\Samir\tp-sim-1\TP5\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.exe
 C:\Users\Samir\tp-sim-1\TP5\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.pdb
+E:\Lautaro\Facultad\Cuarto Año\SIM\TP5\Proyecto\TP5\TP5_SIM\TP5_SIM\bin\Debug\TP5_SIM.exe.config
+E:\Lautaro\Facultad\Cuarto Año\SIM\TP5\Proyecto\TP5\TP5_SIM\TP5_SIM\bin\Debug\TP5_SIM.exe
+E:\Lautaro\Facultad\Cuarto Año\SIM\TP5\Proyecto\TP5\TP5_SIM\TP5_SIM\bin\Debug\TP5_SIM.pdb
+E:\Lautaro\Facultad\Cuarto Año\SIM\TP5\Proyecto\TP5\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.csprojAssemblyReference.cache
+E:\Lautaro\Facultad\Cuarto Año\SIM\TP5\Proyecto\TP5\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.CasoA.resources
+E:\Lautaro\Facultad\Cuarto Año\SIM\TP5\Proyecto\TP5\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.Form1.resources
+E:\Lautaro\Facultad\Cuarto Año\SIM\TP5\Proyecto\TP5\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.Properties.Resources.resources
+E:\Lautaro\Facultad\Cuarto Año\SIM\TP5\Proyecto\TP5\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.csproj.GenerateResource.cache
+E:\Lautaro\Facultad\Cuarto Año\SIM\TP5\Proyecto\TP5\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.csproj.CoreCompileInputs.cache
+E:\Lautaro\Facultad\Cuarto Año\SIM\TP5\Proyecto\TP5\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.exe
+E:\Lautaro\Facultad\Cuarto Año\SIM\TP5\Proyecto\TP5\TP5_SIM\TP5_SIM\obj\Debug\TP5_SIM.pdb
