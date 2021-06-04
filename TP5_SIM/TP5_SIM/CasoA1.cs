@@ -108,6 +108,8 @@ namespace TP5_SIM
             Eventos.Add(new Evento() { tiempo = 0, nombre = "Inicializacion", cliente = 0, caja = 0 });
             cantClientesAtendidos = 0;
             totalTiempoAtendiendo = 0;
+            promTiempoAtendiendo = 0;
+            cantClientesAtendidosxMinuto = 0;
             iter = 0;
             cantIter = 0;
 
