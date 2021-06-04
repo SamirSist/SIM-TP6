@@ -64,17 +64,6 @@ namespace TP5_SIM
             this.txt_Hasta = new System.Windows.Forms.TextBox();
             this.btn_simular = new System.Windows.Forms.Button();
             this.dgCasoA = new System.Windows.Forms.DataGridView();
-            this.clientesGrid = new System.Windows.Forms.DataGridView();
-            this.numeroCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lblTituloSimulacion = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.lblPromedioAtencion = new System.Windows.Forms.Label();
-            this.lblCantidadAtendidosXMinuto = new System.Windows.Forms.Label();
-            this.lblRtadoPromedioAtencion = new System.Windows.Forms.Label();
-            this.lblRtadoCantidadAtendidosXMin = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,6 +83,17 @@ namespace TP5_SIM
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientesGrid = new System.Windows.Forms.DataGridView();
+            this.numeroCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblTituloSimulacion = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lblRtadoCantidadAtendidosXMin = new System.Windows.Forms.Label();
+            this.lblRtadoPromedioAtencion = new System.Windows.Forms.Label();
+            this.lblCantidadAtendidosXMinuto = new System.Windows.Forms.Label();
+            this.lblPromedioAtencion = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCasoA)).BeginInit();
@@ -328,122 +328,8 @@ namespace TP5_SIM
             this.dgCasoA.Name = "dgCasoA";
             this.dgCasoA.RowHeadersWidth = 62;
             this.dgCasoA.RowTemplate.Height = 28;
-            this.dgCasoA.Size = new System.Drawing.Size(1122, 486);
+            this.dgCasoA.Size = new System.Drawing.Size(1188, 469);
             this.dgCasoA.TabIndex = 9;
-            // 
-            // clientesGrid
-            // 
-            this.clientesGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.clientesGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.clientesGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.clientesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.clientesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.numeroCliente,
-            this.tiempoLlegada,
-            this.Column20});
-            this.clientesGrid.Location = new System.Drawing.Point(1146, 184);
-            this.clientesGrid.Margin = new System.Windows.Forms.Padding(2);
-            this.clientesGrid.Name = "clientesGrid";
-            this.clientesGrid.RowHeadersWidth = 62;
-            this.clientesGrid.RowTemplate.Height = 28;
-            this.clientesGrid.Size = new System.Drawing.Size(329, 486);
-            this.clientesGrid.TabIndex = 10;
-            // 
-            // numeroCliente
-            // 
-            this.numeroCliente.HeaderText = "Cliente Nº";
-            this.numeroCliente.Name = "numeroCliente";
-            // 
-            // tiempoLlegada
-            // 
-            this.tiempoLlegada.HeaderText = "Tiempo comienzo atención";
-            this.tiempoLlegada.Name = "tiempoLlegada";
-            // 
-            // Column20
-            // 
-            this.Column20.HeaderText = "Tiempo Fin Atención";
-            this.Column20.Name = "Column20";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txt_Hasta);
-            this.groupBox3.Controls.Add(this.txt_Desde);
-            this.groupBox3.Controls.Add(this.txt_Minutos);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Location = new System.Drawing.Point(533, 25);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(230, 108);
-            this.groupBox3.TabIndex = 11;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Datos";
-            // 
-            // lblTituloSimulacion
-            // 
-            this.lblTituloSimulacion.AutoSize = true;
-            this.lblTituloSimulacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloSimulacion.Location = new System.Drawing.Point(12, 147);
-            this.lblTituloSimulacion.Name = "lblTituloSimulacion";
-            this.lblTituloSimulacion.Size = new System.Drawing.Size(159, 26);
-            this.lblTituloSimulacion.TabIndex = 12;
-            this.lblTituloSimulacion.Text = "SIMULACIÓN";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.lblRtadoCantidadAtendidosXMin);
-            this.groupBox4.Controls.Add(this.lblRtadoPromedioAtencion);
-            this.groupBox4.Controls.Add(this.lblCantidadAtendidosXMinuto);
-            this.groupBox4.Controls.Add(this.lblPromedioAtencion);
-            this.groupBox4.Location = new System.Drawing.Point(929, 25);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(474, 107);
-            this.groupBox4.TabIndex = 13;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Resultados";
-            // 
-            // lblPromedioAtencion
-            // 
-            this.lblPromedioAtencion.AutoSize = true;
-            this.lblPromedioAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPromedioAtencion.Location = new System.Drawing.Point(17, 28);
-            this.lblPromedioAtencion.Name = "lblPromedioAtencion";
-            this.lblPromedioAtencion.Size = new System.Drawing.Size(342, 18);
-            this.lblPromedioAtencion.TabIndex = 0;
-            this.lblPromedioAtencion.Text = "Tiempo promedio de atención (en minutos): ";
-            // 
-            // lblCantidadAtendidosXMinuto
-            // 
-            this.lblCantidadAtendidosXMinuto.AutoSize = true;
-            this.lblCantidadAtendidosXMinuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidadAtendidosXMinuto.Location = new System.Drawing.Point(17, 74);
-            this.lblCantidadAtendidosXMinuto.Name = "lblCantidadAtendidosXMinuto";
-            this.lblCantidadAtendidosXMinuto.Size = new System.Drawing.Size(329, 18);
-            this.lblCantidadAtendidosXMinuto.TabIndex = 1;
-            this.lblCantidadAtendidosXMinuto.Text = "Cantidad de clientes atendidos por minuto:";
-            // 
-            // lblRtadoPromedioAtencion
-            // 
-            this.lblRtadoPromedioAtencion.AutoSize = true;
-            this.lblRtadoPromedioAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRtadoPromedioAtencion.ForeColor = System.Drawing.Color.Green;
-            this.lblRtadoPromedioAtencion.Location = new System.Drawing.Point(361, 28);
-            this.lblRtadoPromedioAtencion.Name = "lblRtadoPromedioAtencion";
-            this.lblRtadoPromedioAtencion.Size = new System.Drawing.Size(47, 18);
-            this.lblRtadoPromedioAtencion.TabIndex = 2;
-            this.lblRtadoPromedioAtencion.Text = "rtado";
-            // 
-            // lblRtadoCantidadAtendidosXMin
-            // 
-            this.lblRtadoCantidadAtendidosXMin.AutoSize = true;
-            this.lblRtadoCantidadAtendidosXMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRtadoCantidadAtendidosXMin.ForeColor = System.Drawing.Color.Green;
-            this.lblRtadoCantidadAtendidosXMin.Location = new System.Drawing.Point(352, 74);
-            this.lblRtadoCantidadAtendidosXMin.Name = "lblRtadoCantidadAtendidosXMin";
-            this.lblRtadoCantidadAtendidosXMin.Size = new System.Drawing.Size(56, 18);
-            this.lblRtadoCantidadAtendidosXMin.TabIndex = 3;
-            this.lblRtadoCantidadAtendidosXMin.Text = "rtado2";
             // 
             // Column1
             // 
@@ -589,12 +475,126 @@ namespace TP5_SIM
             this.Column19.MinimumWidth = 8;
             this.Column19.Name = "Column19";
             // 
+            // clientesGrid
+            // 
+            this.clientesGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.clientesGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.clientesGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.clientesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.clientesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.numeroCliente,
+            this.tiempoLlegada,
+            this.Column20});
+            this.clientesGrid.Location = new System.Drawing.Point(1212, 184);
+            this.clientesGrid.Margin = new System.Windows.Forms.Padding(2);
+            this.clientesGrid.Name = "clientesGrid";
+            this.clientesGrid.RowHeadersWidth = 62;
+            this.clientesGrid.RowTemplate.Height = 28;
+            this.clientesGrid.Size = new System.Drawing.Size(329, 469);
+            this.clientesGrid.TabIndex = 10;
+            // 
+            // numeroCliente
+            // 
+            this.numeroCliente.HeaderText = "Cliente Nº";
+            this.numeroCliente.Name = "numeroCliente";
+            // 
+            // tiempoLlegada
+            // 
+            this.tiempoLlegada.HeaderText = "Tiempo comienzo atención";
+            this.tiempoLlegada.Name = "tiempoLlegada";
+            // 
+            // Column20
+            // 
+            this.Column20.HeaderText = "Tiempo Fin Atención";
+            this.Column20.Name = "Column20";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txt_Hasta);
+            this.groupBox3.Controls.Add(this.txt_Desde);
+            this.groupBox3.Controls.Add(this.txt_Minutos);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Location = new System.Drawing.Point(533, 25);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(230, 108);
+            this.groupBox3.TabIndex = 11;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Datos";
+            // 
+            // lblTituloSimulacion
+            // 
+            this.lblTituloSimulacion.AutoSize = true;
+            this.lblTituloSimulacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloSimulacion.Location = new System.Drawing.Point(12, 147);
+            this.lblTituloSimulacion.Name = "lblTituloSimulacion";
+            this.lblTituloSimulacion.Size = new System.Drawing.Size(159, 26);
+            this.lblTituloSimulacion.TabIndex = 12;
+            this.lblTituloSimulacion.Text = "SIMULACIÓN";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.lblRtadoCantidadAtendidosXMin);
+            this.groupBox4.Controls.Add(this.lblRtadoPromedioAtencion);
+            this.groupBox4.Controls.Add(this.lblCantidadAtendidosXMinuto);
+            this.groupBox4.Controls.Add(this.lblPromedioAtencion);
+            this.groupBox4.Location = new System.Drawing.Point(929, 25);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(474, 107);
+            this.groupBox4.TabIndex = 13;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Resultados";
+            // 
+            // lblRtadoCantidadAtendidosXMin
+            // 
+            this.lblRtadoCantidadAtendidosXMin.AutoSize = true;
+            this.lblRtadoCantidadAtendidosXMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRtadoCantidadAtendidosXMin.ForeColor = System.Drawing.Color.Green;
+            this.lblRtadoCantidadAtendidosXMin.Location = new System.Drawing.Point(352, 74);
+            this.lblRtadoCantidadAtendidosXMin.Name = "lblRtadoCantidadAtendidosXMin";
+            this.lblRtadoCantidadAtendidosXMin.Size = new System.Drawing.Size(56, 18);
+            this.lblRtadoCantidadAtendidosXMin.TabIndex = 3;
+            this.lblRtadoCantidadAtendidosXMin.Text = "rtado2";
+            // 
+            // lblRtadoPromedioAtencion
+            // 
+            this.lblRtadoPromedioAtencion.AutoSize = true;
+            this.lblRtadoPromedioAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRtadoPromedioAtencion.ForeColor = System.Drawing.Color.Green;
+            this.lblRtadoPromedioAtencion.Location = new System.Drawing.Point(361, 28);
+            this.lblRtadoPromedioAtencion.Name = "lblRtadoPromedioAtencion";
+            this.lblRtadoPromedioAtencion.Size = new System.Drawing.Size(47, 18);
+            this.lblRtadoPromedioAtencion.TabIndex = 2;
+            this.lblRtadoPromedioAtencion.Text = "rtado";
+            // 
+            // lblCantidadAtendidosXMinuto
+            // 
+            this.lblCantidadAtendidosXMinuto.AutoSize = true;
+            this.lblCantidadAtendidosXMinuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidadAtendidosXMinuto.Location = new System.Drawing.Point(17, 74);
+            this.lblCantidadAtendidosXMinuto.Name = "lblCantidadAtendidosXMinuto";
+            this.lblCantidadAtendidosXMinuto.Size = new System.Drawing.Size(329, 18);
+            this.lblCantidadAtendidosXMinuto.TabIndex = 1;
+            this.lblCantidadAtendidosXMinuto.Text = "Cantidad de clientes atendidos por minuto:";
+            // 
+            // lblPromedioAtencion
+            // 
+            this.lblPromedioAtencion.AutoSize = true;
+            this.lblPromedioAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPromedioAtencion.Location = new System.Drawing.Point(17, 28);
+            this.lblPromedioAtencion.Name = "lblPromedioAtencion";
+            this.lblPromedioAtencion.Size = new System.Drawing.Size(342, 18);
+            this.lblPromedioAtencion.TabIndex = 0;
+            this.lblPromedioAtencion.Text = "Tiempo promedio de atención (en minutos): ";
+            // 
             // CasoA1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1486, 681);
+            this.ClientSize = new System.Drawing.Size(1370, 698);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.lblTituloSimulacion);
             this.Controls.Add(this.groupBox3);

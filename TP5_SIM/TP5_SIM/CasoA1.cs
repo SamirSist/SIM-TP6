@@ -36,8 +36,11 @@ namespace TP5_SIM
         private double totalTiempoAtendiendo;
         private double promTiempoAtendiendo;
         private double cantClientesAtendidosxMinuto;
-
-
+        private long iter;
+        private long cantIter;
+        private double parametroA;
+        private double parametroB;
+        private double difAB;
         private List<int> colaA = new List<int>();
         private List<int> colaB = new List<int>();
         private List<double> tiemposInicioAt = new List<double>();
@@ -60,8 +63,8 @@ namespace TP5_SIM
             txt_finAtencion_A.Text = Convert.ToString(0.5);
             txt_FinAtencion_B.Text = Convert.ToString(1.5);
             txt_Minutos.Text = Convert.ToString(50);
-            txt_Desde.Text = Convert.ToString(1);
-            txt_Hasta.Text = Convert.ToString(20);
+            txt_Desde.Text = Convert.ToString(0);
+            txt_Hasta.Text = Convert.ToString(500);
         }
 
         private string FormaPago(double rnd)
@@ -78,8 +81,9 @@ namespace TP5_SIM
             clientesGrid.Rows.Clear();
             //asigno parametros
             media = Convert.ToDouble(txt_media.Text);
-            finAtencionA = Convert.ToDouble(txt_finAtencion_A.Text);
-            finAtencionB = Convert.ToDouble(txt_FinAtencion_B.Text);
+            parametroA = Convert.ToDouble(txt_finAtencion_A.Text);
+            parametroB = Convert.ToDouble(txt_FinAtencion_B.Text);
+            difAB = parametroB - parametroA;
             desde = Convert.ToInt32(txt_Desde.Text);
             hasta = Convert.ToInt32(txt_Hasta.Text);
             minutos = Convert.ToInt32(txt_Minutos.Text);
@@ -104,6 +108,8 @@ namespace TP5_SIM
             Eventos.Add(new Evento() { tiempo = 0, nombre = "Inicializacion", cliente = 0, caja = 0 });
             cantClientesAtendidos = 0;
             totalTiempoAtendiendo = 0;
+            iter = 0;
+            cantIter = 0;
 
             rnd = aleatorio.NextDouble();
             for (int i = 1; reloj <= minutos; i++)
@@ -160,7 +166,7 @@ namespace TP5_SIM
                         rndTiempoAtencion = obtenerRandom();
                         rndPago = obtenerRandom();
                         formaPago = FormaPago(rndPago);
-                        tiempoAtencion = 0.5 + rndTiempoAtencion;
+                        tiempoAtencion = parametroA + difAB * rndTiempoAtencion;
                         agregarInicioAtencionTabla(proximoEvento.cliente, reloj);
                         Eventos.Add(new Evento() { tiempo = reloj + tiempoAtencion, nombre = "Fin_Atencion_C", cliente = proximoEvento.cliente, caja = 1 });
                         finAtencionA = reloj + tiempoAtencion;
@@ -171,7 +177,7 @@ namespace TP5_SIM
                         rndTiempoAtencion = obtenerRandom();
                         rndPago = obtenerRandom();
                         formaPago = FormaPago(rndPago);
-                        tiempoAtencion = 0.5 + rndTiempoAtencion;
+                        tiempoAtencion = parametroA + difAB * rndTiempoAtencion;
                         if (formaPago == "Tarjeta")
                         {
                             tiempoAtencion += 2;
@@ -186,7 +192,7 @@ namespace TP5_SIM
                         rndTiempoAtencion = obtenerRandom();
                         rndPago = obtenerRandom();
                         formaPago = FormaPago(rndPago);
-                        tiempoAtencion = 0.5 + rndTiempoAtencion;
+                        tiempoAtencion = parametroA + difAB * rndTiempoAtencion;
                         if (formaPago == "Tarjeta")
                         {
                             tiempoAtencion += 2;
@@ -218,7 +224,7 @@ namespace TP5_SIM
                             rndTiempoAtencion = obtenerRandom();
                             rndPago = obtenerRandom();
                             formaPago = FormaPago(rndPago);
-                            tiempoAtencion = 0.5 + rndTiempoAtencion;
+                            tiempoAtencion = parametroA + difAB * rndTiempoAtencion;
                             if (formaPago == "Tarjeta")
                             {
                                 tiempoAtencion += 2;
@@ -244,7 +250,7 @@ namespace TP5_SIM
                             rndTiempoAtencion = obtenerRandom();
                             rndPago = obtenerRandom();
                             formaPago = FormaPago(rndPago);
-                            tiempoAtencion = 0.5 + rndTiempoAtencion;
+                            tiempoAtencion = parametroA + difAB * rndTiempoAtencion;
                             if (formaPago == "Tarjeta")
                             {
                                 tiempoAtencion += 2;
@@ -263,10 +269,11 @@ namespace TP5_SIM
                         }
                     }
                 }
-
-                if (reloj >= desde && reloj <= hasta)
+                iter++;
+                if (iter >= desde && iter <= hasta && cantIter <= 500)
                 {
-                    dgCasoA.Rows.Add(evento, Math.Round(reloj,2), rndLlegada, tiempoEntreLlegada, Math.Round(proximaLlegada,2), rndPago, formaPago, rndTiempoAtencion, tiempoAtencion, Math.Round(finAtencionA,2), Math.Round(finAtencionB,2), estadoCaja1, string.Join(",", colaA), estadoCaja2, string.Join(",", colaB), cantClientesAtendidos, totalTiempoAtendiendo, promTiempoAtendiendo, cantClientesAtendidosxMinuto);
+                    cantIter++;
+                    dgCasoA.Rows.Add(evento, Math.Round(reloj,2), rndLlegada, tiempoEntreLlegada, Math.Round(proximaLlegada,2), rndPago, formaPago, rndTiempoAtencion, tiempoAtencion, Math.Round(finAtencionA,2), Math.Round(finAtencionB,2), estadoCaja1, cantColaA(), estadoCaja2, cantColaB(), cantClientesAtendidos, totalTiempoAtendiendo, promTiempoAtendiendo, cantClientesAtendidosxMinuto);
                 }
 
                 
@@ -279,7 +286,7 @@ namespace TP5_SIM
                 clientesGrid.Rows.Add(cli + 1, tiemposInicioAt[cli], tiemposFinAt[cli]);
                 cli++;
             }
-
+            dgCasoA.Rows.Add(evento, Math.Round(reloj, 2), rndLlegada, tiempoEntreLlegada, Math.Round(proximaLlegada, 2), rndPago, formaPago, rndTiempoAtencion, tiempoAtencion, Math.Round(finAtencionA, 2), Math.Round(finAtencionB, 2), estadoCaja1, cantColaA(), estadoCaja2, cantColaB(), cantClientesAtendidos, totalTiempoAtendiendo, promTiempoAtendiendo, cantClientesAtendidosxMinuto);
             mostrarResultados();
 
         }
@@ -339,7 +346,7 @@ namespace TP5_SIM
             if (colaB.Count == 0)
             {
                 estadoCaja2 = "Libre";
-                if (estadoCaja1 == "Libre")
+                if (colaA.Count == 1 || colaA.Count == 0)
                 {
                     estadoCaja2 = "Cerrada";
                 }
@@ -349,7 +356,7 @@ namespace TP5_SIM
 
         private int aQueColaIr()
         {
-            if (estadoCaja2 == "Cerrada" && colaA.Count == 4) {
+            if (estadoCaja2 == "Cerrada" && colaA.Count == 5) {
                 estadoCaja2 = "Libre";
                 colaB.Add(colaA.Last());
                 colaA.RemoveAt(colaA.Count - 1);
@@ -423,6 +430,24 @@ namespace TP5_SIM
             }
 
             return rnd;
+        }
+        private int cantColaA()
+        {
+            if (colaA.Count == 0)
+            {
+                return 0;
+            }
+            return (colaA.Count - 1);
+
+        }
+        private int cantColaB()
+        {
+            if (colaB.Count == 0)
+            {
+                return 0;
+            }
+            return (colaB.Count - 1);
+
         }
 
         private void mostrarResultados()
