@@ -325,6 +325,7 @@ namespace TP5_SIM
         {
             lblRtadoPromedioTiempoCola.Text = this.PROMtiempoCola.ToString();
             lblRtadoPromTiempoSuper.Text = this.PROMtiempoEnSuper.ToString();
+            lblRtadoCantidadClientesAtendidos.Text = this.cantClientesAtendidos.ToString();
         }
 
         private void ingresaClienteColaA(int numC) {

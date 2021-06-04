@@ -48,6 +48,11 @@ namespace TP5_SIM
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDatoBTiempoRecorridoGondola = new System.Windows.Forms.TextBox();
+            this.txtDatoATiempoRecorridoGondola = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.txt_FinAtencion_B = new System.Windows.Forms.TextBox();
             this.txt_finAtencion_A = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -67,25 +72,6 @@ namespace TP5_SIM
             this.txt_Hasta = new System.Windows.Forms.TextBox();
             this.btn_simular = new System.Windows.Forms.Button();
             this.dgCasoA = new System.Windows.Forms.DataGridView();
-            this.clientesGrid = new System.Windows.Forms.DataGridView();
-            this.numeroCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.relojLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtDatoBTiempoRecorridoGondola = new System.Windows.Forms.TextBox();
-            this.txtDatoATiempoRecorridoGondola = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.grpbDatos = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.lblRtadoPromTiempoSuper = new System.Windows.Forms.Label();
-            this.lblRtadoPromedioTiempoCola = new System.Windows.Forms.Label();
-            this.lblCantidadAtendidosXMinuto = new System.Windows.Forms.Label();
-            this.lblPromedioAtencion = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -110,6 +96,22 @@ namespace TP5_SIM
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientesGrid = new System.Windows.Forms.DataGridView();
+            this.numeroCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.relojLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grpbDatos = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lblRtadoPromTiempoSuper = new System.Windows.Forms.Label();
+            this.lblRtadoPromedioTiempoCola = new System.Windows.Forms.Label();
+            this.lblCantidadAtendidosXMinuto = new System.Windows.Forms.Label();
+            this.lblPromedioAtencion = new System.Windows.Forms.Label();
+            this.lblRtadoCantidadClientesAtendidos = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCasoA)).BeginInit();
@@ -141,6 +143,52 @@ namespace TP5_SIM
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Eventos";
+            // 
+            // txtDatoBTiempoRecorridoGondola
+            // 
+            this.txtDatoBTiempoRecorridoGondola.Location = new System.Drawing.Point(293, 73);
+            this.txtDatoBTiempoRecorridoGondola.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDatoBTiempoRecorridoGondola.Name = "txtDatoBTiempoRecorridoGondola";
+            this.txtDatoBTiempoRecorridoGondola.Size = new System.Drawing.Size(41, 20);
+            this.txtDatoBTiempoRecorridoGondola.TabIndex = 12;
+            // 
+            // txtDatoATiempoRecorridoGondola
+            // 
+            this.txtDatoATiempoRecorridoGondola.Location = new System.Drawing.Point(293, 48);
+            this.txtDatoATiempoRecorridoGondola.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDatoATiempoRecorridoGondola.Name = "txtDatoATiempoRecorridoGondola";
+            this.txtDatoATiempoRecorridoGondola.Size = new System.Drawing.Size(41, 20);
+            this.txtDatoATiempoRecorridoGondola.TabIndex = 11;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(265, 75);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(17, 13);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "B:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(265, 52);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(17, 13);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "A:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(219, 27);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(160, 13);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Tiempo de recorrido de gondola:";
             // 
             // txt_FinAtencion_B
             // 
@@ -357,190 +405,6 @@ namespace TP5_SIM
             this.dgCasoA.Size = new System.Drawing.Size(1133, 493);
             this.dgCasoA.TabIndex = 9;
             // 
-            // clientesGrid
-            // 
-            this.clientesGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.clientesGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.clientesGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.clientesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.clientesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.numeroCliente,
-            this.relojLlegada,
-            this.Column20,
-            this.Column23,
-            this.Column24});
-            this.clientesGrid.Location = new System.Drawing.Point(1158, 177);
-            this.clientesGrid.Margin = new System.Windows.Forms.Padding(2);
-            this.clientesGrid.Name = "clientesGrid";
-            this.clientesGrid.RowHeadersWidth = 62;
-            this.clientesGrid.RowTemplate.Height = 28;
-            this.clientesGrid.Size = new System.Drawing.Size(321, 493);
-            this.clientesGrid.TabIndex = 10;
-            // 
-            // numeroCliente
-            // 
-            this.numeroCliente.HeaderText = "Cliente Nº";
-            this.numeroCliente.Name = "numeroCliente";
-            // 
-            // relojLlegada
-            // 
-            this.relojLlegada.HeaderText = "relojLlegada";
-            this.relojLlegada.Name = "relojLlegada";
-            // 
-            // Column20
-            // 
-            this.Column20.HeaderText = "reloj fin recorrido";
-            this.Column20.Name = "Column20";
-            // 
-            // Column23
-            // 
-            this.Column23.HeaderText = "reloj inicio atencion";
-            this.Column23.Name = "Column23";
-            // 
-            // Column24
-            // 
-            this.Column24.HeaderText = "reloj fin atencion";
-            this.Column24.Name = "Column24";
-            // 
-            // txtDatoBTiempoRecorridoGondola
-            // 
-            this.txtDatoBTiempoRecorridoGondola.Location = new System.Drawing.Point(293, 73);
-            this.txtDatoBTiempoRecorridoGondola.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDatoBTiempoRecorridoGondola.Name = "txtDatoBTiempoRecorridoGondola";
-            this.txtDatoBTiempoRecorridoGondola.Size = new System.Drawing.Size(41, 20);
-            this.txtDatoBTiempoRecorridoGondola.TabIndex = 12;
-            // 
-            // txtDatoATiempoRecorridoGondola
-            // 
-            this.txtDatoATiempoRecorridoGondola.Location = new System.Drawing.Point(293, 48);
-            this.txtDatoATiempoRecorridoGondola.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDatoATiempoRecorridoGondola.Name = "txtDatoATiempoRecorridoGondola";
-            this.txtDatoATiempoRecorridoGondola.Size = new System.Drawing.Size(41, 20);
-            this.txtDatoATiempoRecorridoGondola.TabIndex = 11;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(265, 75);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(17, 13);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "B:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(265, 52);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(17, 13);
-            this.label12.TabIndex = 9;
-            this.label12.Text = "A:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(219, 27);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(160, 13);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "Tiempo de recorrido de gondola:";
-            // 
-            // grpbDatos
-            // 
-            this.grpbDatos.Controls.Add(this.txt_Hasta);
-            this.grpbDatos.Controls.Add(this.txt_Desde);
-            this.grpbDatos.Controls.Add(this.txt_Minutos);
-            this.grpbDatos.Controls.Add(this.label10);
-            this.grpbDatos.Controls.Add(this.label9);
-            this.grpbDatos.Controls.Add(this.label8);
-            this.grpbDatos.Location = new System.Drawing.Point(621, 27);
-            this.grpbDatos.Name = "grpbDatos";
-            this.grpbDatos.Size = new System.Drawing.Size(216, 105);
-            this.grpbDatos.TabIndex = 11;
-            this.grpbDatos.TabStop = false;
-            this.grpbDatos.Text = "Datos";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(9, 147);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(151, 25);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "SIMULACION";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.label15);
-            this.groupBox4.Controls.Add(this.lblRtadoPromTiempoSuper);
-            this.groupBox4.Controls.Add(this.lblRtadoPromedioTiempoCola);
-            this.groupBox4.Controls.Add(this.lblCantidadAtendidosXMinuto);
-            this.groupBox4.Controls.Add(this.lblPromedioAtencion);
-            this.groupBox4.Location = new System.Drawing.Point(1000, 27);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(474, 107);
-            this.groupBox4.TabIndex = 14;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Resultados";
-            // 
-            // lblRtadoPromTiempoSuper
-            // 
-            this.lblRtadoPromTiempoSuper.AutoSize = true;
-            this.lblRtadoPromTiempoSuper.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRtadoPromTiempoSuper.ForeColor = System.Drawing.Color.Green;
-            this.lblRtadoPromTiempoSuper.Location = new System.Drawing.Point(412, 59);
-            this.lblRtadoPromTiempoSuper.Name = "lblRtadoPromTiempoSuper";
-            this.lblRtadoPromTiempoSuper.Size = new System.Drawing.Size(52, 16);
-            this.lblRtadoPromTiempoSuper.TabIndex = 3;
-            this.lblRtadoPromTiempoSuper.Text = "rtado2";
-            // 
-            // lblRtadoPromedioTiempoCola
-            // 
-            this.lblRtadoPromedioTiempoCola.AutoSize = true;
-            this.lblRtadoPromedioTiempoCola.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRtadoPromedioTiempoCola.ForeColor = System.Drawing.Color.Green;
-            this.lblRtadoPromedioTiempoCola.Location = new System.Drawing.Point(360, 26);
-            this.lblRtadoPromedioTiempoCola.Name = "lblRtadoPromedioTiempoCola";
-            this.lblRtadoPromedioTiempoCola.Size = new System.Drawing.Size(44, 16);
-            this.lblRtadoPromedioTiempoCola.TabIndex = 2;
-            this.lblRtadoPromedioTiempoCola.Text = "rtado";
-            // 
-            // lblCantidadAtendidosXMinuto
-            // 
-            this.lblCantidadAtendidosXMinuto.AutoSize = true;
-            this.lblCantidadAtendidosXMinuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidadAtendidosXMinuto.Location = new System.Drawing.Point(17, 61);
-            this.lblCantidadAtendidosXMinuto.Name = "lblCantidadAtendidosXMinuto";
-            this.lblCantidadAtendidosXMinuto.Size = new System.Drawing.Size(392, 13);
-            this.lblCantidadAtendidosXMinuto.TabIndex = 1;
-            this.lblCantidadAtendidosXMinuto.Text = "Tiempo promedio de permanencia de los clientes en supermercado: ";
-            // 
-            // lblPromedioAtencion
-            // 
-            this.lblPromedioAtencion.AutoSize = true;
-            this.lblPromedioAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPromedioAtencion.Location = new System.Drawing.Point(17, 28);
-            this.lblPromedioAtencion.Name = "lblPromedioAtencion";
-            this.lblPromedioAtencion.Size = new System.Drawing.Size(337, 13);
-            this.lblPromedioAtencion.TabIndex = 0;
-            this.lblPromedioAtencion.Text = "Tiempo promedio de permanencia de los clientes en cola: ";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(17, 86);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(151, 13);
-            this.label15.TabIndex = 4;
-            this.label15.Text = "* tiempo expresado en minutos";
-            // 
             // Column1
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -713,6 +577,167 @@ namespace TP5_SIM
             this.Column26.HeaderText = "PROM tiempo en super x cliente";
             this.Column26.Name = "Column26";
             // 
+            // clientesGrid
+            // 
+            this.clientesGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.clientesGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.clientesGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.clientesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.clientesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.numeroCliente,
+            this.relojLlegada,
+            this.Column20,
+            this.Column23,
+            this.Column24});
+            this.clientesGrid.Location = new System.Drawing.Point(1158, 177);
+            this.clientesGrid.Margin = new System.Windows.Forms.Padding(2);
+            this.clientesGrid.Name = "clientesGrid";
+            this.clientesGrid.RowHeadersWidth = 62;
+            this.clientesGrid.RowTemplate.Height = 28;
+            this.clientesGrid.Size = new System.Drawing.Size(321, 493);
+            this.clientesGrid.TabIndex = 10;
+            // 
+            // numeroCliente
+            // 
+            this.numeroCliente.HeaderText = "Cliente Nº";
+            this.numeroCliente.Name = "numeroCliente";
+            // 
+            // relojLlegada
+            // 
+            this.relojLlegada.HeaderText = "relojLlegada";
+            this.relojLlegada.Name = "relojLlegada";
+            // 
+            // Column20
+            // 
+            this.Column20.HeaderText = "reloj fin recorrido";
+            this.Column20.Name = "Column20";
+            // 
+            // Column23
+            // 
+            this.Column23.HeaderText = "reloj inicio atencion";
+            this.Column23.Name = "Column23";
+            // 
+            // Column24
+            // 
+            this.Column24.HeaderText = "reloj fin atencion";
+            this.Column24.Name = "Column24";
+            // 
+            // grpbDatos
+            // 
+            this.grpbDatos.Controls.Add(this.txt_Hasta);
+            this.grpbDatos.Controls.Add(this.txt_Desde);
+            this.grpbDatos.Controls.Add(this.txt_Minutos);
+            this.grpbDatos.Controls.Add(this.label10);
+            this.grpbDatos.Controls.Add(this.label9);
+            this.grpbDatos.Controls.Add(this.label8);
+            this.grpbDatos.Location = new System.Drawing.Point(621, 27);
+            this.grpbDatos.Name = "grpbDatos";
+            this.grpbDatos.Size = new System.Drawing.Size(216, 105);
+            this.grpbDatos.TabIndex = 11;
+            this.grpbDatos.TabStop = false;
+            this.grpbDatos.Text = "Datos";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(9, 147);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(151, 25);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "SIMULACION";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.lblRtadoCantidadClientesAtendidos);
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.lblRtadoPromTiempoSuper);
+            this.groupBox4.Controls.Add(this.lblRtadoPromedioTiempoCola);
+            this.groupBox4.Controls.Add(this.lblCantidadAtendidosXMinuto);
+            this.groupBox4.Controls.Add(this.lblPromedioAtencion);
+            this.groupBox4.Location = new System.Drawing.Point(1000, 27);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(474, 107);
+            this.groupBox4.TabIndex = 14;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Resultados";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(17, 86);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(151, 13);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "* tiempo expresado en minutos";
+            // 
+            // lblRtadoPromTiempoSuper
+            // 
+            this.lblRtadoPromTiempoSuper.AutoSize = true;
+            this.lblRtadoPromTiempoSuper.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRtadoPromTiempoSuper.ForeColor = System.Drawing.Color.Green;
+            this.lblRtadoPromTiempoSuper.Location = new System.Drawing.Point(415, 45);
+            this.lblRtadoPromTiempoSuper.Name = "lblRtadoPromTiempoSuper";
+            this.lblRtadoPromTiempoSuper.Size = new System.Drawing.Size(52, 16);
+            this.lblRtadoPromTiempoSuper.TabIndex = 3;
+            this.lblRtadoPromTiempoSuper.Text = "rtado2";
+            // 
+            // lblRtadoPromedioTiempoCola
+            // 
+            this.lblRtadoPromedioTiempoCola.AutoSize = true;
+            this.lblRtadoPromedioTiempoCola.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRtadoPromedioTiempoCola.ForeColor = System.Drawing.Color.Green;
+            this.lblRtadoPromedioTiempoCola.Location = new System.Drawing.Point(360, 26);
+            this.lblRtadoPromedioTiempoCola.Name = "lblRtadoPromedioTiempoCola";
+            this.lblRtadoPromedioTiempoCola.Size = new System.Drawing.Size(44, 16);
+            this.lblRtadoPromedioTiempoCola.TabIndex = 2;
+            this.lblRtadoPromedioTiempoCola.Text = "rtado";
+            // 
+            // lblCantidadAtendidosXMinuto
+            // 
+            this.lblCantidadAtendidosXMinuto.AutoSize = true;
+            this.lblCantidadAtendidosXMinuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidadAtendidosXMinuto.Location = new System.Drawing.Point(17, 48);
+            this.lblCantidadAtendidosXMinuto.Name = "lblCantidadAtendidosXMinuto";
+            this.lblCantidadAtendidosXMinuto.Size = new System.Drawing.Size(392, 13);
+            this.lblCantidadAtendidosXMinuto.TabIndex = 1;
+            this.lblCantidadAtendidosXMinuto.Text = "Tiempo promedio de permanencia de los clientes en supermercado: ";
+            // 
+            // lblPromedioAtencion
+            // 
+            this.lblPromedioAtencion.AutoSize = true;
+            this.lblPromedioAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPromedioAtencion.Location = new System.Drawing.Point(17, 28);
+            this.lblPromedioAtencion.Name = "lblPromedioAtencion";
+            this.lblPromedioAtencion.Size = new System.Drawing.Size(337, 13);
+            this.lblPromedioAtencion.TabIndex = 0;
+            this.lblPromedioAtencion.Text = "Tiempo promedio de permanencia de los clientes en cola: ";
+            // 
+            // lblRtadoCantidadClientesAtendidos
+            // 
+            this.lblRtadoCantidadClientesAtendidos.AutoSize = true;
+            this.lblRtadoCantidadClientesAtendidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRtadoCantidadClientesAtendidos.ForeColor = System.Drawing.Color.Green;
+            this.lblRtadoCantidadClientesAtendidos.Location = new System.Drawing.Point(213, 68);
+            this.lblRtadoCantidadClientesAtendidos.Name = "lblRtadoCantidadClientesAtendidos";
+            this.lblRtadoCantidadClientesAtendidos.Size = new System.Drawing.Size(52, 16);
+            this.lblRtadoCantidadClientesAtendidos.TabIndex = 6;
+            this.lblRtadoCantidadClientesAtendidos.Text = "rtado3";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(17, 69);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(190, 13);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Cantidad de clientes atendidos: ";
+            // 
             // CasoB1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -811,5 +836,7 @@ namespace TP5_SIM
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column25;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column26;
+        private System.Windows.Forms.Label lblRtadoCantidadClientesAtendidos;
+        private System.Windows.Forms.Label label17;
     }
 }
