@@ -53,6 +53,7 @@ namespace TP5_SIM
             this.btn_casoB.TabIndex = 1;
             this.btn_casoB.Text = "CASO B";
             this.btn_casoB.UseVisualStyleBackColor = true;
+            this.btn_casoB.Click += new System.EventHandler(this.btn_casoB_Click);
             // 
             // Form1
             // 

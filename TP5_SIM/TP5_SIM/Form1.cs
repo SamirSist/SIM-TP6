@@ -19,9 +19,15 @@ namespace TP5_SIM
 
         private void btn_casoA_Click(object sender, EventArgs e)
         {
-            CasoA ca = new CasoA();
+            CasoA1 ca = new CasoA1();
             ca.Show();
 
+        }
+
+        private void btn_casoB_Click(object sender, EventArgs e)
+        {
+            CasoB1 cb = new CasoB1();
+            cb.Show();
         }
     }
 }

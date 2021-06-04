@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CasoA.cs">
+    <Compile Include="CasoA1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CasoA.Designer.cs">
-      <DependentUpon>CasoA.cs</DependentUpon>
+    <Compile Include="CasoA1.Designer.cs">
+      <DependentUpon>CasoA1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CasoB1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CasoB1.designer.cs">
+      <DependentUpon>CasoB1.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -60,8 +66,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CasoA.resx">
-      <DependentUpon>CasoA.cs</DependentUpon>
+    <EmbeddedResource Include="CasoA1.resx">
+      <DependentUpon>CasoA1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CasoB1.resx">
+      <DependentUpon>CasoB1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
