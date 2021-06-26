@@ -29,24 +29,24 @@ namespace TP5_SIM
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDatoBTiempoRecorridoGondola = new System.Windows.Forms.TextBox();
             this.txtDatoATiempoRecorridoGondola = new System.Windows.Forms.TextBox();
@@ -72,6 +72,65 @@ namespace TP5_SIM
             this.txt_Hasta = new System.Windows.Forms.TextBox();
             this.btn_simular = new System.Windows.Forms.Button();
             this.dgCasoA = new System.Windows.Forms.DataGridView();
+            this.clientesGrid = new System.Windows.Forms.DataGridView();
+            this.numeroCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.relojLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grpbDatos = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lblRtadoCantidadClientesAtendidos = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lblRtadoPromTiempoSuper = new System.Windows.Forms.Label();
+            this.lblRtadoPromedioTiempoCola = new System.Windows.Forms.Label();
+            this.lblCantidadAtendidosXMinuto = new System.Windows.Forms.Label();
+            this.lblPromedioAtencion = new System.Windows.Forms.Label();
+            this.tabControlCasoB = new System.Windows.Forms.TabControl();
+            this.tabEventos = new System.Windows.Forms.TabPage();
+            this.tabClientes = new System.Windows.Forms.TabPage();
+            this.tabMetricas = new System.Windows.Forms.TabPage();
+            this.tabRK1 = new System.Windows.Forms.TabPage();
+            this.tabRK2 = new System.Windows.Forms.TabPage();
+            this.dgvMetricas = new System.Windows.Forms.DataGridView();
+            this.colRejo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantTotalClientesAtendidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantClienteSalieronCola = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAcumTiempoEnCola = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAcumTiempoEnSuper = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPromTiempoColaPorCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPromTiempoSuperPorCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rungeKuttaDatos1 = new System.Windows.Forms.DataGridView();
+            this.rungeKutta1 = new System.Windows.Forms.DataGridView();
+            this.colDatos1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDatos2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDatos3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDatos4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDatos5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRKX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRKY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRKK1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRKK2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRKK3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRKK4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRKXmas1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRKYmas1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rungeKuttaDatos2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rungeKutta2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,34 +149,23 @@ namespace TP5_SIM
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientesGrid = new System.Windows.Forms.DataGridView();
-            this.numeroCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.relojLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grpbDatos = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.lblRtadoCantidadClientesAtendidos = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lblRtadoPromTiempoSuper = new System.Windows.Forms.Label();
-            this.lblRtadoPromedioTiempoCola = new System.Windows.Forms.Label();
-            this.lblCantidadAtendidosXMinuto = new System.Windows.Forms.Label();
-            this.lblPromedioAtencion = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCasoA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesGrid)).BeginInit();
             this.grpbDatos.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.tabControlCasoB.SuspendLayout();
+            this.tabEventos.SuspendLayout();
+            this.tabClientes.SuspendLayout();
+            this.tabMetricas.SuspendLayout();
+            this.tabRK1.SuspendLayout();
+            this.tabRK2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMetricas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rungeKuttaDatos1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rungeKutta1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rungeKuttaDatos2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rungeKutta2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -390,192 +438,14 @@ namespace TP5_SIM
             this.Column12,
             this.Column13,
             this.Column14,
-            this.Column15,
-            this.Column16,
-            this.Column17,
-            this.Column18,
-            this.Column19,
-            this.Column25,
-            this.Column26});
-            this.dgCasoA.Location = new System.Drawing.Point(8, 177);
+            this.Column15});
+            this.dgCasoA.Location = new System.Drawing.Point(5, 4);
             this.dgCasoA.Margin = new System.Windows.Forms.Padding(2);
             this.dgCasoA.Name = "dgCasoA";
             this.dgCasoA.RowHeadersWidth = 62;
             this.dgCasoA.RowTemplate.Height = 28;
-            this.dgCasoA.Size = new System.Drawing.Size(1094, 493);
+            this.dgCasoA.Size = new System.Drawing.Size(1365, 519);
             this.dgCasoA.TabIndex = 9;
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle19;
-            this.Column1.HeaderText = "Eventos";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle20;
-            this.Column2.HeaderText = "Reloj/Minutos";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle21;
-            this.Column3.HeaderText = "RND";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle22;
-            this.Column4.HeaderText = "tiempo entre llegadas";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle23;
-            this.Column5.HeaderText = "proxima llegada";
-            this.Column5.MinimumWidth = 8;
-            this.Column5.Name = "Column5";
-            // 
-            // rndGondola
-            // 
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.rndGondola.DefaultCellStyle = dataGridViewCellStyle24;
-            this.rndGondola.HeaderText = "RND recorrido gondola";
-            this.rndGondola.Name = "rndGondola";
-            // 
-            // Column21
-            // 
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Column21.DefaultCellStyle = dataGridViewCellStyle25;
-            this.Column21.HeaderText = "tiempo recorrido gondola";
-            this.Column21.Name = "Column21";
-            // 
-            // Column22
-            // 
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Column22.DefaultCellStyle = dataGridViewCellStyle26;
-            this.Column22.HeaderText = "Fin recorrido gondola";
-            this.Column22.Name = "Column22";
-            // 
-            // Column6
-            // 
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle27;
-            this.Column6.HeaderText = "RND";
-            this.Column6.MinimumWidth = 8;
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle28;
-            this.Column7.HeaderText = "Forma de pago";
-            this.Column7.MinimumWidth = 8;
-            this.Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle29;
-            this.Column8.HeaderText = "RND";
-            this.Column8.MinimumWidth = 8;
-            this.Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle30;
-            this.Column9.HeaderText = "tiempo de atencion";
-            this.Column9.MinimumWidth = 8;
-            this.Column9.Name = "Column9";
-            // 
-            // Column10
-            // 
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Column10.DefaultCellStyle = dataGridViewCellStyle31;
-            this.Column10.HeaderText = "FinCaja1";
-            this.Column10.MinimumWidth = 8;
-            this.Column10.Name = "Column10";
-            // 
-            // Column11
-            // 
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Column11.DefaultCellStyle = dataGridViewCellStyle32;
-            this.Column11.HeaderText = "FinCaja2";
-            this.Column11.MinimumWidth = 8;
-            this.Column11.Name = "Column11";
-            // 
-            // Column12
-            // 
-            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.Column12.DefaultCellStyle = dataGridViewCellStyle33;
-            this.Column12.HeaderText = "EstadoC1";
-            this.Column12.MinimumWidth = 8;
-            this.Column12.Name = "Column12";
-            // 
-            // Column13
-            // 
-            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.Column13.DefaultCellStyle = dataGridViewCellStyle34;
-            this.Column13.HeaderText = "ColaC1";
-            this.Column13.MinimumWidth = 8;
-            this.Column13.Name = "Column13";
-            // 
-            // Column14
-            // 
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.Column14.DefaultCellStyle = dataGridViewCellStyle35;
-            this.Column14.HeaderText = "EstadoC2";
-            this.Column14.MinimumWidth = 8;
-            this.Column14.Name = "Column14";
-            // 
-            // Column15
-            // 
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.Column15.DefaultCellStyle = dataGridViewCellStyle36;
-            this.Column15.HeaderText = "ColaC2";
-            this.Column15.MinimumWidth = 8;
-            this.Column15.Name = "Column15";
-            // 
-            // Column16
-            // 
-            this.Column16.HeaderText = "Cantidad Total ClientesAtendidos";
-            this.Column16.MinimumWidth = 8;
-            this.Column16.Name = "Column16";
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "Cant clientes que salieron de cola";
-            this.Column17.Name = "Column17";
-            // 
-            // Column18
-            // 
-            this.Column18.HeaderText = "ACUM tiempo en cola";
-            this.Column18.Name = "Column18";
-            // 
-            // Column19
-            // 
-            this.Column19.HeaderText = "ACUM tiempo en Super";
-            this.Column19.Name = "Column19";
-            // 
-            // Column25
-            // 
-            this.Column25.HeaderText = "PROM tiempo en cola x cliente";
-            this.Column25.Name = "Column25";
-            // 
-            // Column26
-            // 
-            this.Column26.HeaderText = "PROM tiempo en super x cliente";
-            this.Column26.Name = "Column26";
             // 
             // clientesGrid
             // 
@@ -590,12 +460,12 @@ namespace TP5_SIM
             this.Column20,
             this.Column23,
             this.Column24});
-            this.clientesGrid.Location = new System.Drawing.Point(1106, 177);
+            this.clientesGrid.Location = new System.Drawing.Point(2, 4);
             this.clientesGrid.Margin = new System.Windows.Forms.Padding(2);
             this.clientesGrid.Name = "clientesGrid";
             this.clientesGrid.RowHeadersWidth = 62;
             this.clientesGrid.RowTemplate.Height = 28;
-            this.clientesGrid.Size = new System.Drawing.Size(321, 493);
+            this.clientesGrid.Size = new System.Drawing.Size(1368, 519);
             this.clientesGrid.TabIndex = 10;
             // 
             // numeroCliente
@@ -637,17 +507,6 @@ namespace TP5_SIM
             this.grpbDatos.TabIndex = 11;
             this.grpbDatos.TabStop = false;
             this.grpbDatos.Text = "Datos";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(9, 147);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(151, 25);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "SIMULACION";
             // 
             // groupBox4
             // 
@@ -738,16 +597,465 @@ namespace TP5_SIM
             this.lblPromedioAtencion.TabIndex = 0;
             this.lblPromedioAtencion.Text = "Tiempo prom. de permanencia en cola: ";
             // 
+            // tabControlCasoB
+            // 
+            this.tabControlCasoB.Controls.Add(this.tabEventos);
+            this.tabControlCasoB.Controls.Add(this.tabClientes);
+            this.tabControlCasoB.Controls.Add(this.tabMetricas);
+            this.tabControlCasoB.Controls.Add(this.tabRK1);
+            this.tabControlCasoB.Controls.Add(this.tabRK2);
+            this.tabControlCasoB.Location = new System.Drawing.Point(12, 140);
+            this.tabControlCasoB.Name = "tabControlCasoB";
+            this.tabControlCasoB.SelectedIndex = 0;
+            this.tabControlCasoB.Size = new System.Drawing.Size(1380, 551);
+            this.tabControlCasoB.TabIndex = 15;
+            // 
+            // tabEventos
+            // 
+            this.tabEventos.Controls.Add(this.dgCasoA);
+            this.tabEventos.Location = new System.Drawing.Point(4, 22);
+            this.tabEventos.Name = "tabEventos";
+            this.tabEventos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabEventos.Size = new System.Drawing.Size(1372, 525);
+            this.tabEventos.TabIndex = 0;
+            this.tabEventos.Text = "Eventos";
+            this.tabEventos.UseVisualStyleBackColor = true;
+            // 
+            // tabClientes
+            // 
+            this.tabClientes.Controls.Add(this.clientesGrid);
+            this.tabClientes.Location = new System.Drawing.Point(4, 22);
+            this.tabClientes.Name = "tabClientes";
+            this.tabClientes.Padding = new System.Windows.Forms.Padding(3);
+            this.tabClientes.Size = new System.Drawing.Size(1372, 525);
+            this.tabClientes.TabIndex = 1;
+            this.tabClientes.Text = "Clientes";
+            this.tabClientes.UseVisualStyleBackColor = true;
+            // 
+            // tabMetricas
+            // 
+            this.tabMetricas.Controls.Add(this.dgvMetricas);
+            this.tabMetricas.Location = new System.Drawing.Point(4, 22);
+            this.tabMetricas.Name = "tabMetricas";
+            this.tabMetricas.Size = new System.Drawing.Size(1372, 525);
+            this.tabMetricas.TabIndex = 2;
+            this.tabMetricas.Text = "Metricas";
+            this.tabMetricas.UseVisualStyleBackColor = true;
+            // 
+            // tabRK1
+            // 
+            this.tabRK1.Controls.Add(this.rungeKutta1);
+            this.tabRK1.Controls.Add(this.rungeKuttaDatos1);
+            this.tabRK1.Location = new System.Drawing.Point(4, 22);
+            this.tabRK1.Name = "tabRK1";
+            this.tabRK1.Size = new System.Drawing.Size(1372, 525);
+            this.tabRK1.TabIndex = 3;
+            this.tabRK1.Text = "Runge Kutta 1";
+            this.tabRK1.UseVisualStyleBackColor = true;
+            // 
+            // tabRK2
+            // 
+            this.tabRK2.Controls.Add(this.rungeKutta2);
+            this.tabRK2.Controls.Add(this.rungeKuttaDatos2);
+            this.tabRK2.Location = new System.Drawing.Point(4, 22);
+            this.tabRK2.Name = "tabRK2";
+            this.tabRK2.Size = new System.Drawing.Size(1372, 525);
+            this.tabRK2.TabIndex = 4;
+            this.tabRK2.Text = "Runge Kutta 2";
+            this.tabRK2.UseVisualStyleBackColor = true;
+            // 
+            // dgvMetricas
+            // 
+            this.dgvMetricas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMetricas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colRejo,
+            this.colCantTotalClientesAtendidos,
+            this.colCantClienteSalieronCola,
+            this.colAcumTiempoEnCola,
+            this.colAcumTiempoEnSuper,
+            this.colPromTiempoColaPorCliente,
+            this.colPromTiempoSuperPorCliente});
+            this.dgvMetricas.Location = new System.Drawing.Point(3, 3);
+            this.dgvMetricas.Name = "dgvMetricas";
+            this.dgvMetricas.Size = new System.Drawing.Size(1366, 519);
+            this.dgvMetricas.TabIndex = 0;
+            // 
+            // colRejo
+            // 
+            this.colRejo.HeaderText = "Reloj";
+            this.colRejo.Name = "colRejo";
+            // 
+            // colCantTotalClientesAtendidos
+            // 
+            this.colCantTotalClientesAtendidos.HeaderText = "Cantidad Total Clientes Atendidos";
+            this.colCantTotalClientesAtendidos.Name = "colCantTotalClientesAtendidos";
+            // 
+            // colCantClienteSalieronCola
+            // 
+            this.colCantClienteSalieronCola.HeaderText = "Cantida Clientes Salieron de Cola";
+            this.colCantClienteSalieronCola.Name = "colCantClienteSalieronCola";
+            // 
+            // colAcumTiempoEnCola
+            // 
+            this.colAcumTiempoEnCola.HeaderText = "Acum Tiempo en Cola";
+            this.colAcumTiempoEnCola.Name = "colAcumTiempoEnCola";
+            // 
+            // colAcumTiempoEnSuper
+            // 
+            this.colAcumTiempoEnSuper.HeaderText = "Acum Tiempo en Super";
+            this.colAcumTiempoEnSuper.Name = "colAcumTiempoEnSuper";
+            // 
+            // colPromTiempoColaPorCliente
+            // 
+            this.colPromTiempoColaPorCliente.HeaderText = "Prom Tiempo Cola Por Cliente";
+            this.colPromTiempoColaPorCliente.Name = "colPromTiempoColaPorCliente";
+            // 
+            // colPromTiempoSuperPorCliente
+            // 
+            this.colPromTiempoSuperPorCliente.HeaderText = "Prom Tiempo en Super Por Cliente";
+            this.colPromTiempoSuperPorCliente.Name = "colPromTiempoSuperPorCliente";
+            // 
+            // rungeKuttaDatos1
+            // 
+            this.rungeKuttaDatos1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rungeKuttaDatos1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colDatos1,
+            this.colDatos2,
+            this.colDatos3,
+            this.colDatos4,
+            this.colDatos5});
+            this.rungeKuttaDatos1.Location = new System.Drawing.Point(0, 3);
+            this.rungeKuttaDatos1.Name = "rungeKuttaDatos1";
+            this.rungeKuttaDatos1.Size = new System.Drawing.Size(527, 522);
+            this.rungeKuttaDatos1.TabIndex = 0;
+            // 
+            // rungeKutta1
+            // 
+            this.rungeKutta1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rungeKutta1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colRKX,
+            this.colRKY,
+            this.colRKK1,
+            this.colRKK2,
+            this.colRKK3,
+            this.colRKK4,
+            this.colRKXmas1,
+            this.colRKYmas1});
+            this.rungeKutta1.Location = new System.Drawing.Point(540, 3);
+            this.rungeKutta1.Name = "rungeKutta1";
+            this.rungeKutta1.Size = new System.Drawing.Size(832, 522);
+            this.rungeKutta1.TabIndex = 1;
+            // 
+            // colDatos1
+            // 
+            this.colDatos1.HeaderText = "Col 1";
+            this.colDatos1.Name = "colDatos1";
+            // 
+            // colDatos2
+            // 
+            this.colDatos2.HeaderText = "Col 2";
+            this.colDatos2.Name = "colDatos2";
+            // 
+            // colDatos3
+            // 
+            this.colDatos3.HeaderText = "Col 3";
+            this.colDatos3.Name = "colDatos3";
+            // 
+            // colDatos4
+            // 
+            this.colDatos4.HeaderText = "Col 4";
+            this.colDatos4.Name = "colDatos4";
+            // 
+            // colDatos5
+            // 
+            this.colDatos5.HeaderText = "Col 5";
+            this.colDatos5.Name = "colDatos5";
+            // 
+            // colRKX
+            // 
+            this.colRKX.HeaderText = "X";
+            this.colRKX.Name = "colRKX";
+            // 
+            // colRKY
+            // 
+            this.colRKY.HeaderText = "Y";
+            this.colRKY.Name = "colRKY";
+            // 
+            // colRKK1
+            // 
+            this.colRKK1.HeaderText = "K1";
+            this.colRKK1.Name = "colRKK1";
+            // 
+            // colRKK2
+            // 
+            this.colRKK2.HeaderText = "K2";
+            this.colRKK2.Name = "colRKK2";
+            // 
+            // colRKK3
+            // 
+            this.colRKK3.HeaderText = "K3";
+            this.colRKK3.Name = "colRKK3";
+            // 
+            // colRKK4
+            // 
+            this.colRKK4.HeaderText = "K4";
+            this.colRKK4.Name = "colRKK4";
+            // 
+            // colRKXmas1
+            // 
+            this.colRKXmas1.HeaderText = "X (i +1)";
+            this.colRKXmas1.Name = "colRKXmas1";
+            // 
+            // colRKYmas1
+            // 
+            this.colRKYmas1.HeaderText = "Y (i + 1)";
+            this.colRKYmas1.Name = "colRKYmas1";
+            // 
+            // rungeKuttaDatos2
+            // 
+            this.rungeKuttaDatos2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rungeKuttaDatos2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.rungeKuttaDatos2.Location = new System.Drawing.Point(2, 3);
+            this.rungeKuttaDatos2.Name = "rungeKuttaDatos2";
+            this.rungeKuttaDatos2.Size = new System.Drawing.Size(527, 522);
+            this.rungeKuttaDatos2.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Col 1";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Col 2";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Col 3";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Col 4";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Col 5";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // rungeKutta2
+            // 
+            this.rungeKutta2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rungeKutta2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13});
+            this.rungeKutta2.Location = new System.Drawing.Point(540, 3);
+            this.rungeKutta2.Name = "rungeKutta2";
+            this.rungeKutta2.Size = new System.Drawing.Size(832, 522);
+            this.rungeKutta2.TabIndex = 2;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "X";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Y";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "K1";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "K2";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "K3";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "K4";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.HeaderText = "X (i +1)";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.HeaderText = "Y (i + 1)";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // Column1
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column1.HeaderText = "Eventos";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column2.HeaderText = "Reloj/Minutos";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column3.HeaderText = "RND";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column4.HeaderText = "tiempo entre llegadas";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column5.HeaderText = "proxima llegada";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            // 
+            // rndGondola
+            // 
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.rndGondola.DefaultCellStyle = dataGridViewCellStyle6;
+            this.rndGondola.HeaderText = "RND recorrido gondola";
+            this.rndGondola.Name = "rndGondola";
+            // 
+            // Column21
+            // 
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Column21.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Column21.HeaderText = "tiempo recorrido gondola";
+            this.Column21.Name = "Column21";
+            // 
+            // Column22
+            // 
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Column22.DefaultCellStyle = dataGridViewCellStyle8;
+            this.Column22.HeaderText = "Fin recorrido gondola";
+            this.Column22.Name = "Column22";
+            // 
+            // Column6
+            // 
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle9;
+            this.Column6.HeaderText = "RND";
+            this.Column6.MinimumWidth = 8;
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle10;
+            this.Column7.HeaderText = "Forma de pago";
+            this.Column7.MinimumWidth = 8;
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle11;
+            this.Column8.HeaderText = "RND";
+            this.Column8.MinimumWidth = 8;
+            this.Column8.Name = "Column8";
+            // 
+            // Column9
+            // 
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle12;
+            this.Column9.HeaderText = "tiempo de atencion";
+            this.Column9.MinimumWidth = 8;
+            this.Column9.Name = "Column9";
+            // 
+            // Column10
+            // 
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Column10.DefaultCellStyle = dataGridViewCellStyle13;
+            this.Column10.HeaderText = "FinCaja1";
+            this.Column10.MinimumWidth = 8;
+            this.Column10.Name = "Column10";
+            // 
+            // Column11
+            // 
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Column11.DefaultCellStyle = dataGridViewCellStyle14;
+            this.Column11.HeaderText = "FinCaja2";
+            this.Column11.MinimumWidth = 8;
+            this.Column11.Name = "Column11";
+            // 
+            // Column12
+            // 
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.Column12.DefaultCellStyle = dataGridViewCellStyle15;
+            this.Column12.HeaderText = "EstadoC1";
+            this.Column12.MinimumWidth = 8;
+            this.Column12.Name = "Column12";
+            // 
+            // Column13
+            // 
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.Column13.DefaultCellStyle = dataGridViewCellStyle16;
+            this.Column13.HeaderText = "ColaC1";
+            this.Column13.MinimumWidth = 8;
+            this.Column13.Name = "Column13";
+            // 
+            // Column14
+            // 
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.Column14.DefaultCellStyle = dataGridViewCellStyle17;
+            this.Column14.HeaderText = "EstadoC2";
+            this.Column14.MinimumWidth = 8;
+            this.Column14.Name = "Column14";
+            // 
+            // Column15
+            // 
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.Column15.DefaultCellStyle = dataGridViewCellStyle18;
+            this.Column15.HeaderText = "ColaC2";
+            this.Column15.MinimumWidth = 8;
+            this.Column15.Name = "Column15";
+            // 
             // CasoB1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 681);
+            this.ClientSize = new System.Drawing.Size(1395, 695);
+            this.Controls.Add(this.tabControlCasoB);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.grpbDatos);
-            this.Controls.Add(this.clientesGrid);
-            this.Controls.Add(this.dgCasoA);
             this.Controls.Add(this.btn_simular);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -766,8 +1074,18 @@ namespace TP5_SIM
             this.grpbDatos.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.tabControlCasoB.ResumeLayout(false);
+            this.tabEventos.ResumeLayout(false);
+            this.tabClientes.ResumeLayout(false);
+            this.tabMetricas.ResumeLayout(false);
+            this.tabRK1.ResumeLayout(false);
+            this.tabRK2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMetricas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rungeKuttaDatos1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rungeKutta1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rungeKuttaDatos2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rungeKutta2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -805,13 +1123,17 @@ namespace TP5_SIM
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox grpbDatos;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label lblRtadoPromTiempoSuper;
         private System.Windows.Forms.Label lblRtadoPromedioTiempoCola;
         private System.Windows.Forms.Label lblCantidadAtendidosXMinuto;
         private System.Windows.Forms.Label lblPromedioAtencion;
+        private System.Windows.Forms.Label lblRtadoCantidadClientesAtendidos;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TabControl tabControlCasoB;
+        private System.Windows.Forms.TabPage tabEventos;
+        private System.Windows.Forms.TabPage tabClientes;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -830,13 +1152,46 @@ namespace TP5_SIM
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column26;
-        private System.Windows.Forms.Label lblRtadoCantidadClientesAtendidos;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TabPage tabMetricas;
+        private System.Windows.Forms.DataGridView dgvMetricas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRejo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCantTotalClientesAtendidos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCantClienteSalieronCola;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAcumTiempoEnCola;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAcumTiempoEnSuper;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPromTiempoColaPorCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPromTiempoSuperPorCliente;
+        private System.Windows.Forms.TabPage tabRK1;
+        private System.Windows.Forms.DataGridView rungeKutta1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRKX;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRKY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRKK1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRKK2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRKK3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRKK4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRKXmas1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRKYmas1;
+        private System.Windows.Forms.DataGridView rungeKuttaDatos1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDatos1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDatos2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDatos3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDatos4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDatos5;
+        private System.Windows.Forms.TabPage tabRK2;
+        private System.Windows.Forms.DataGridView rungeKutta2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridView rungeKuttaDatos2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }
