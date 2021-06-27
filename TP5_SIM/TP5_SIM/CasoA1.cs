@@ -41,6 +41,25 @@ namespace TP5_SIM
         private double parametroA;
         private double parametroB;
         private double difAB;
+        private double beta;
+        private double xi;
+        private double yi;
+        private double h;
+        private double k1;
+        private double k2;
+        private double k3;
+        private double k4;
+        private double xNext;
+        private double yNext;
+        private double rndProxInterrup;
+        private double tiempoInterrup;
+        private double proxInterrup;
+        private int nroLlegadas;
+        private double duracionInterrup;
+        private double finInterrup;
+        private double tiempoRemanente;
+        private int cantInterrup;
+        private int ultimoR;
         private List<int> colaA = new List<int>();
         private List<int> colaB = new List<int>();
         private List<double> tiemposInicioAt = new List<double>();
@@ -75,10 +94,72 @@ namespace TP5_SIM
                 return "Contado";
         }
 
+        private double TiempoProxInterrup(double rnd)
+        {
+            if (rnd < 0.50)
+                return Math.Round(33 / 2.0, 2);
+            else
+                if (rnd >= 0.50 && rnd < 0.70)
+                return Math.Round(43 / 2.0, 2);
+            else
+                return Math.Round(52 / 2.0, 2);
+        }
+
+        private double RungeDuracion(int llegadas)
+        {
+            xNext = 0;
+            yNext = llegadas;
+            yi = yNext + 1;
+            h = 1;
+            beta = -0.0365041;
+
+            while (Math.Round(yi - yNext, 2) > 0.02)
+            {
+                xi = xNext;
+                yi = yNext;
+                k1 = Math.Round(beta * yi * 0.5, 2);
+                k2 = Math.Round(beta * 0.5 * (yi + h / 2 * k1), 2);
+                k3 = Math.Round(beta * 0.5 * (yi + h / 2 * k2), 2);
+                k4 = Math.Round(beta * 0.5 * (yi + h * k3), 2);
+                xNext = xi + h;
+                yNext = Math.Round(yi + h / 6 * (1 * k1 + 2 * k2 + 2 * k3 + k4), 2);
+            }
+            return xi;
+            //MessageBox.Show(xi.ToString());
+            //return Math.Round(xi / 30, 2);
+        }
+
+        private double RellenarRunge(int llegadas)
+        {
+            xNext = 0;
+            yNext = llegadas;
+            yi = yNext + 1;
+            h = 1;
+            beta = -0.0388117;
+
+            while (Math.Round(yi - yNext, 2) > 0.02)
+            {
+                xi = xNext;
+                yi = yNext;
+                k1 = Math.Round(beta * yi * 0.5, 2);
+                k2 = Math.Round(beta * 0.5 * (yi + h / 2 * k1), 2);
+                k3 = Math.Round(beta * 0.5 * (yi + h / 2 * k2), 2);
+                k4 = Math.Round(beta * 0.5 * (yi + h * k3), 2);
+                xNext = xi + h;
+                yNext = Math.Round(yi + h / 6 * (1 * k1 + 2 * k2 + 2 * k3 + k4), 2);
+                rungeKutta1.Rows.Add(xi, yi, k1, k2, k3, k4, xNext, yNext);
+            }
+
+            return 0;
+        }
+
         private void btn_simular_Click(object sender, EventArgs e)
         {
             dgCasoA.Rows.Clear();
             clientesGrid.Rows.Clear();
+            dgvMetricas.Rows.Clear();
+            estadoColasgv.Rows.Clear();
+            rungeKuttaDatos1.Rows.Clear();
             //asigno parametros
             media = Convert.ToDouble(txt_media.Text);
             parametroA = Convert.ToDouble(txt_finAtencion_A.Text);
@@ -112,6 +193,10 @@ namespace TP5_SIM
             cantClientesAtendidosxMinuto = 0;
             iter = 0;
             cantIter = 0;
+            cantInterrup = 1;
+            nroLlegadas = 0;
+            ultimoR = 0;
+            tiempoRemanente = 0;
 
             rnd = aleatorio.NextDouble();
             for (int i = 1; reloj <= minutos; i++)
@@ -127,6 +212,13 @@ namespace TP5_SIM
                     tiempoEntreLlegada = Math.Round(-media * Math.Log(1 - rndLlegada), 2);
                     proximaLlegada = reloj + tiempoEntreLlegada;
                     Eventos.Add(new Evento() { tiempo = proximaLlegada, nombre = "Llegada_cliente", cliente = 1, caja = 0 });
+
+                    rndProxInterrup = obtenerRandom();
+                    tiempoInterrup = TiempoProxInterrup(rndProxInterrup);
+                    proxInterrup = reloj + tiempoInterrup;
+
+                    Eventos.Add(new Evento() { tiempo = proxInterrup, nombre = "Tiquetera_sin_papel", cliente = 1, caja = 1 });
+
                     rndTiempoAtencion = 0;
                     tiempoAtencion = 0;
                     rndPago = 0;
@@ -138,6 +230,7 @@ namespace TP5_SIM
                 if (proximoEvento.nombre == "Llegada_cliente")
                 {
                     cantClientes += 1;
+                    nroLlegadas += 1;
                     evento = "Llegada_cliente_" + proximoEvento.cliente;
                     reloj = proximoEvento.tiempo;
                     rndLlegada = obtenerRandom();
@@ -151,9 +244,14 @@ namespace TP5_SIM
                     tiempoAtencion = 0;
                     rndPago = 0;
                     formaPago = " ";
+                    rndProxInterrup = 0;
+                    tiempoInterrup = 0;
+                    proxInterrup = 0;
+                    duracionInterrup = 0;
+                    finInterrup = 0;
                     agregarClienteTabla(proximoEvento.cliente);
                     int cola = aQueColaIr();
-                    if (estadoCaja1 == "AC" && (estadoCaja2 == "AC" || estadoCaja2 == "Cerrada"))
+                    if ((estadoCaja1 == "AC" || estadoCaja1 == "I") && (estadoCaja2 == "AC" || estadoCaja2 == "Cerrada"))
                     {
                         if (cola == 1)
                         {
@@ -207,6 +305,58 @@ namespace TP5_SIM
 
                 }
 
+                //Inicio interrupción
+                if (proximoEvento.nombre == "Tiquetera_sin_papel")
+                {
+                    cantInterrup++;
+                    evento = "Tiquetera_sin_papel_" + proximoEvento.cliente;
+                    reloj = proximoEvento.tiempo;
+                    duracionInterrup = RungeDuracion(nroLlegadas);
+                    ultimoR = nroLlegadas;
+                    rungeKuttaDatos1.Rows.Add(evento, nroLlegadas, duracionInterrup, Math.Round(duracionInterrup / 30, 2));
+                    finInterrup = Math.Round(reloj + Math.Round(duracionInterrup / 30, 2), 2);
+                    tiempoRemanente = interrumpirAtencion();
+                    duracionInterrup = Math.Round(duracionInterrup / 30, 2);
+                    if (tiempoRemanente == -1) {
+                        tiempoRemanente = 0;
+                    } 
+                    Eventos.Add(new Evento() { tiempo = finInterrup, nombre = "Fin_interrupción", cliente = proximoEvento.cliente, caja = 1 });
+                    nroLlegadas = 0;
+                    rndProxInterrup = 0;
+                    tiempoInterrup = 0;
+                    proxInterrup = 0;
+                    tiempoEntreLlegada = 0;
+                    rndLlegada = 0;
+                    proximaLlegada = 0;
+                    rndTiempoAtencion = 0;
+                    tiempoAtencion = 0;
+                    rndPago = 0;
+                    formaPago = " ";
+                }
+
+                //Fin interrupcion
+                if (proximoEvento.nombre == "Fin_interrupción")
+                {
+                    evento = "Fin_interrupción_" + proximoEvento.cliente;
+                    reloj = proximoEvento.tiempo;
+                    rndProxInterrup = obtenerRandom();
+                    tiempoInterrup = TiempoProxInterrup(rndProxInterrup);
+                    proxInterrup = reloj + tiempoInterrup;
+                    duracionInterrup = 0;
+                    finInterrup = 0;
+                    continuarAtencion();
+                    tiempoRemanente = 0;
+                    Eventos.Add(new Evento() { tiempo = proxInterrup, nombre = "Tiquetera_sin_papel", cliente = cantInterrup, caja = 1 });
+                    tiempoEntreLlegada = 0;
+                    rndLlegada = 0;
+                    proximaLlegada = 0;
+                    rndTiempoAtencion = 0;
+                    tiempoAtencion = 0;
+                    rndPago = 0;
+                    formaPago = " ";
+
+                }
+
                 //Fin de atención de un cliente
                 if (proximoEvento.nombre == "Fin_Atencion_C") {
                     evento = proximoEvento.nombre + "_" + proximoEvento.cliente;
@@ -214,6 +364,11 @@ namespace TP5_SIM
                     rndLlegada = 0;
                     tiempoEntreLlegada = 0;
                     proximaLlegada = 0;
+                    rndProxInterrup = 0;
+                    tiempoInterrup = 0;
+                    proxInterrup = 0;
+                    duracionInterrup = 0;
+                    finInterrup = 0;
                     cantClientesAtendidos += 1;
                     agregarFinAtencionCliente(proximoEvento.cliente, reloj);
                     sumarTiempoAtencion(proximoEvento.cliente, reloj);
@@ -275,7 +430,10 @@ namespace TP5_SIM
                 if (iter >= desde && iter <= hasta && cantIter <= 500)
                 {
                     cantIter++;
-                    dgCasoA.Rows.Add(evento, Math.Round(reloj,2), rndLlegada, tiempoEntreLlegada, Math.Round(proximaLlegada,2), rndPago, formaPago, rndTiempoAtencion, tiempoAtencion, Math.Round(finAtencionA,2), Math.Round(finAtencionB,2), estadoCaja1, cantColaA(), estadoCaja2, cantColaB(), cantClientesAtendidos, totalTiempoAtendiendo, promTiempoAtendiendo, cantClientesAtendidosxMinuto);
+                    dgCasoA.Rows.Add(evento, Math.Round(reloj,2), rndLlegada, tiempoEntreLlegada, Math.Round(proximaLlegada,2), rndProxInterrup, tiempoInterrup, proxInterrup, nroLlegadas, duracionInterrup, finInterrup, tiempoRemanente, rndPago, formaPago, rndTiempoAtencion, tiempoAtencion, Math.Round(finAtencionA,2), Math.Round(finAtencionB,2));
+                    dgvMetricas.Rows.Add(Math.Round(reloj, 2), cantClientesAtendidos, totalTiempoAtendiendo, promTiempoAtendiendo, cantClientesAtendidosxMinuto);
+                    estadoColasgv.Rows.Add(Math.Round(reloj, 2), estadoCaja1, cantColaA(), estadoCaja2, cantColaB());
+
                 }
 
                 
@@ -288,8 +446,11 @@ namespace TP5_SIM
                 clientesGrid.Rows.Add(cli + 1, tiemposInicioAt[cli], tiemposFinAt[cli]);
                 cli++;
             }
-            dgCasoA.Rows.Add(evento, Math.Round(reloj, 2), rndLlegada, tiempoEntreLlegada, Math.Round(proximaLlegada, 2), rndPago, formaPago, rndTiempoAtencion, tiempoAtencion, Math.Round(finAtencionA, 2), Math.Round(finAtencionB, 2), estadoCaja1, cantColaA(), estadoCaja2, cantColaB(), cantClientesAtendidos, totalTiempoAtendiendo, promTiempoAtendiendo, cantClientesAtendidosxMinuto);
+            dgCasoA.Rows.Add(evento, Math.Round(reloj, 2), rndLlegada, tiempoEntreLlegada, Math.Round(proximaLlegada, 2), rndProxInterrup, tiempoInterrup, proxInterrup, nroLlegadas, duracionInterrup, finInterrup, tiempoRemanente, rndPago, formaPago, rndTiempoAtencion, tiempoAtencion, Math.Round(finAtencionA, 2), Math.Round(finAtencionB, 2));
+            dgvMetricas.Rows.Add(Math.Round(reloj, 2), cantClientesAtendidos, totalTiempoAtendiendo, promTiempoAtendiendo, cantClientesAtendidosxMinuto);
+            estadoColasgv.Rows.Add(Math.Round(reloj, 2), estadoCaja1, cantColaA(), estadoCaja2, cantColaB());
             mostrarResultados();
+            RellenarRunge(ultimoR);
 
         }
 
@@ -468,15 +629,72 @@ namespace TP5_SIM
             public int caja { get; set; }
         }
 
-        private Evento obtenerProxEvent(List<Evento> Eventos) {
+        private double interrumpirAtencion()
+        {
+
             Evento tempEvent = Eventos[0];
             int i;
             i = 0;
+            double tiempoRem = -1;
+            foreach (Evento ev in Eventos)
+            {
+
+                if (ev.caja == 1 && ev.nombre == "Fin_Atencion_C")
+                {
+                    tiempoRem = Math.Round(ev.tiempo - reloj, 2);
+                    ev.tiempo = -1;
+                    //MessageBox.Show(ev.tiempo.ToString());
+                }
+
+            }
+            estadoCaja1 = "I";
+            return tiempoRem;
+        }
+
+        private void continuarAtencion()
+        {
+            //MessageBox.Show("Llego");
+            foreach (Evento ev in Eventos)
+            {
+
+                if (ev.tiempo == -1)
+                {
+                    ev.tiempo = (reloj + tiempoRemanente);
+                    //MessageBox.Show("Se volviò a atender");
+                }
+            }
+            if (colaA.Count() > 0)
+            {
+                estadoCaja1 = "AC";
+            }
+            else
+            {
+                estadoCaja1 = "Libre";
+            }
+        }
+        private Evento obtenerProxEvent(List<Evento> Eventos)
+        {
+            Evento tempEvent;
+            int i;
+
             int j;
-            j = 0;
-            foreach (Evento ev in Eventos) {
-               
-                if (ev.tiempo < tempEvent.tiempo) {
+            i = 0;
+
+            if (Eventos[0].tiempo == -1)
+            {
+                tempEvent = Eventos[1];
+                j = 1;
+            }
+            else
+            {
+                tempEvent = Eventos[0];
+                j = 0;
+            }
+
+            foreach (Evento ev in Eventos)
+            {
+                if (ev.tiempo < tempEvent.tiempo && ev.tiempo != -1)
+                {
                     tempEvent = ev;
                     j = i;
                 }
